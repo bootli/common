@@ -502,18 +502,10 @@ rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-netdata
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba
 rm -rf ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-argon-config
-rm -rf ${HOME_PATH}/feeds/luci/themes/luci-theme-argon
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-argon
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-argon-config
-rm -rf ${HOME_PATH}/package/lean/luci-theme-argon
-rm -rf ${HOME_PATH}/package/lean/luci-app-argon-config
 rm -rf ${HOME_PATH}/package/lean/luci-theme-edge
 rm -rf ${HOME_PATH}/package/lean/luci-theme-neobird
 rm -rf ${HOME_PATH}/package/lean/luci-theme-opentopd
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x ${HOME_PATH}/feeds/packages/lang/golang
-git clone https://github.com/jerrykuku/luci-theme-argon -b 18.06  ${HOME_PATH}/package/lean/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config  -b 18.06 ${HOME_PATH}/package/lean/luci-app-argon-config
 git clone https://github.com/bootli/luci-app-v2ray-server ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
 git clone https://github.com/bootli/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
 git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
