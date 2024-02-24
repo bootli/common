@@ -546,27 +546,12 @@ sed -i '/exit 0$/d' "${DEFAULT_PATH}"
 sed -i "s?112233?${SOURCE} - ${LUCI_EDITION}?g" "${DEFAULT_PATH}" > /dev/null 2>&1
 sed -i 's/root:.*/root::0:0:99999:7:::/g' ${FILES_PATH}/etc/shadow
 #添加
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-adguardhome
-rm -rf ${HOME_PATH}/feeds/kenzo/adguardhome
-rm -rf ${HOME_PATH}/feeds/packages/net/adguardhome
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-godproxy
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-ikoolproxy
 rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-ikoolproxy
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-tencentddns
-rm -rf ${HOME_PATH}/feeds/kenzo/diy/.packages/luci-app-adguardhome
-rm -rf ${HOME_PATH}/feeds/kenzo/diy/.packages/adguardhome
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-neobird
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-edge
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-fileassistant
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-socat
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-upnp
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-advanced
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-aliyundrive-fuse
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-aliyundrive-webdav
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-amule
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-openvpn-server
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-softethervpn
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-netdata
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba
