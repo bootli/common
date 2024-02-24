@@ -546,7 +546,7 @@ sed -i '/exit 0$/d' "${DEFAULT_PATH}"
 sed -i "s?112233?${SOURCE} - ${LUCI_EDITION}?g" "${DEFAULT_PATH}" > /dev/null 2>&1
 sed -i 's/root:.*/root::0:0:99999:7:::/g' ${FILES_PATH}/etc/shadow
 #添加
-    find . -type d -name 'luci-theme-argon' -o -name 'luci-theme-argonv3' -o -name 'ddns-go' -o -name 'luci-app-ddns-go' -o -name 'luci-theme-argon-mod' -o -name 'luci-app-argon-config' -o -name 'luci-theme-argone-mod' -o -name 'luci-app-argone-config' -o -name 'luci-app-v2ray-server' -o -name 'luci-app-netdata' -o -name 'autosamba' -o -name 'luci-app-samba4' -o -name 'luci-app-ikoolproxy' -o -name 'aliyundrive-webdav' | xargs -i rm -rf {}
+    find . -type d -name 'luci-theme-argonv3' -o -name 'ddns-go' -o -name 'luci-app-ddns-go' -o -name 'luci-theme-argon-mod' -o -name 'luci-app-argon-config' -o -name 'luci-theme-argone-mod' -o -name 'luci-app-argone-config' -o -name 'luci-app-v2ray-server' -o -name 'luci-app-netdata' -o -name 'autosamba' -o -name 'luci-app-samba4' -o -name 'luci-app-ikoolproxy' -o -name 'aliyundrive-webdav' | xargs -i rm -rf {}
 #find . -type d -name "r8168" -o -name "r8101" -o -name "r8125" |grep 'danshui' |xargs -i rm -rf {}
     git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon "${HOME_PATH}/package/lean/luci-theme-argon"
     git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config "${HOME_PATH}/package/lean/luci-app-argon-config"
