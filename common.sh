@@ -1,5 +1,5 @@
 #!/bin/bash
-# https://github.com/bootli/build-actions
+# https://github.com/281677160/build-actions
 # common Module by 28677160
 # matrix.target=${FOLDER_NAME}
 
@@ -26,7 +26,7 @@ Compte=$(date +%Y年%m月%d号%H时%M分)
 
 function settings_variable() {
 cd ${GITHUB_WORKSPACE}
-bash <(curl -fsSL https://raw.githubusercontent.com/bootli/common/main/custom/first.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/281677160/common/main/custom/first.sh)
 }
 
 function Diy_variable() {
@@ -115,7 +115,7 @@ chmod -R +x ${start_path} && source ${start_path}
 
 case "${SOURCE_CODE}" in
 COOLSNOWWOLF)
-  export REPO_URL="https://github.com/OpenWrtLi/lede"
+  export REPO_URL="https://github.com/coolsnowwolf/lede"
   export SOURCE="Lede"
   export SOURCE_OWNER="Lean's"
   export LUCI_EDITION="18.06"
@@ -231,7 +231,7 @@ fi
 
 
 function Diy_update() {
-bash <(curl -fsSL https://raw.githubusercontent.com/bootli/common/main/custom/ubuntu.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/281677160/common/main/custom/ubuntu.sh)
 if [[ $? -ne 0 ]];then
   TIME r "依赖安装失败，请检测网络后再次尝试!"
   exit 1
@@ -250,6 +250,33 @@ fi
 }
 
 
+function svn_co() {
+if [[ $# -lt 3 ]]; then
+  echo "Syntax error: [$#] [$*]"
+  return 0
+fi
+branch="$1" curl="$2" target_dir="$3" && shift 3
+localdir="${HOME_PATH}/${target_dir}"
+[ -d "${localdir}" ] || mkdir -p "${localdir}"
+tmpdir="$(mktemp -d)" || exit 1
+trap 'rm -rf "${tmpdir}"' EXIT
+packages="${tmpdir}/localpackages"
+git clone -b "${branch}" --depth 1 --filter=blob:none --sparse "${curl}" "${tmpdir}"
+[[ $? -ne 0 ]] && echo "文件下载失败,请检查网络,或查看仓库链接或者分支的正确性"
+cd "${tmpdir}" && mkdir -p "${packages}"
+git sparse-checkout init --cone
+git sparse-checkout set "$@"
+for i in "$@"; do
+  cp -Rf "${i}" "${packages}"
+done
+for X in $(ls -1 ${packages}); do
+  find "${localdir}" -type d -name "${X}" |xargs -i rm -rf {}
+  cp -Rf "${packages}/${X}" "${localdir}"
+done
+cd "${HOME_PATH}" && sudo rm -rf "${tmpdir}"
+}
+
+
 function Diy_checkout() {
 # 下载源码后，进行源码微调和增加插件源
 cd ${HOME_PATH}
@@ -264,14 +291,15 @@ if [[ -n "${LUCI_CHECKUT}" ]]; then
 fi
 git pull
 
-sed -i '/bootli/d; /helloworld/d; /passwall/d; /OpenClash/d' "feeds.conf.default"
+sed -i '/281677160/d; /helloworld/d; /passwall/d; /OpenClash/d' "feeds.conf.default"
 cat feeds.conf.default|awk '!/^#/'|awk '!/^$/'|awk '!a[$1" "$2]++{print}' >uniq.conf
 mv -f uniq.conf feeds.conf.default
 
 # 这里增加了源,要对应的删除/etc/opkg/distfeeds.conf插件源
 cat >>"feeds.conf.default" <<-EOF
-src-git kenzo https://github.com/kenzok8/openwrt-packages
-src-git small https://github.com/kenzok8/small
+src-git danshui1 https://github.com/281677160/openwrt-package.git;${SOURCE}
+src-git helloworld https://github.com/fw876/helloworld.git
+src-git passwall3 https://github.com/xiaorouji/openwrt-passwall-packages;main
 EOF
 ./scripts/feeds update -a
 
@@ -363,6 +391,11 @@ OFFICIAL)
     find . -type d -name "${i}" |grep -v 'danshui\|freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
   done
   if [[ "${REPO_BRANCH}" == "openwrt-19.07" ]]; then
+    s="luci-app-vssr,lua-maxminddb,luci-app-natter,natter,luci-app-unblockneteasemusic"
+    c=(${s//,/ })
+    for i in ${c[@]}; do \
+      find . -type d -name "${i}" |grep -v 'freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
+    done
     if [[ -d "${HOME_PATH}/build/common/Share/libcap" ]]; then
       rm -rf ${HOME_PATH}/feeds/packages/libs/libcap
       cp -Rf ${HOME_PATH}/build/common/Share/libcap ${HOME_PATH}/feeds/packages/libs/libcap
@@ -372,8 +405,18 @@ OFFICIAL)
       cp -Rf ${HOME_PATH}/build/common/Share/luci-app-ttyd ${HOME_PATH}/feeds/luci/applications/luci-app-ttyd
       cp -Rf ${HOME_PATH}/build/common/Share/ttyd ${HOME_PATH}/feeds/packages/utils/ttyd
     fi
+    if [[ -d "${HOME_PATH}/build/common/Share/luci-app-samba4" ]]; then
+      find . -type d -name 'luci-app-samba4' -o -name 'samba4' |grep -v 'Share\|freifunk\|helloworld\|passwall3' | xargs -i rm -rf {}
+      cp -Rf ${HOME_PATH}/build/common/Share/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
+      cp -Rf ${HOME_PATH}/build/common/Share/samba4 ${HOME_PATH}/feeds/packages/net/samba4
+      rm -rf ${HOME_PATH}/feeds/packages/libs/liburing
+      cp -Rf ${HOME_PATH}/build/common/Share/liburing ${HOME_PATH}/feeds/packages/libs/liburing
+      rm -rf ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
+      cp -Rf ${HOME_PATH}/build/common/Share/perl-parse-yapp ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
+    fi
+    svn_co 21.02 https://github.com/Lienol/openwrt tools/cmake tools/cmake
   fi
-  if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02) ]]; then
+  if [[ "${REPO_BRANCH}" == "openwrt-21.02" ]]; then
     s="luci-app-vssr,lua-maxminddb,luci-app-natter,natter,luci-app-unblockneteasemusic"
     c=(${s//,/ })
     for i in ${c[@]}; do \
@@ -503,8 +546,6 @@ sudo chmod +x "${DEFAULT_PATH}"
 sed -i '/exit 0$/d' "${DEFAULT_PATH}"
 sed -i "s?112233?${SOURCE} - ${LUCI_EDITION}?g" "${DEFAULT_PATH}" > /dev/null 2>&1
 sed -i 's/root:.*/root::0:0:99999:7:::/g' ${FILES_PATH}/etc/shadow
-
-
 if [[ `grep -Eoc "admin:.*" ${FILES_PATH}/etc/shadow` -eq '1' ]]; then
   sed -i 's/admin:.*/admin::0:0:99999:7:::/g' ${FILES_PATH}/etc/shadow
 fi
@@ -659,11 +700,11 @@ fi
 # 取消shadowsocksr-libev的libopenssl-legacy依赖
 if [[ "${REPO_BRANCH}" =~ (19.07|21.02|22.03) ]]; then
   if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocksr-libev" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocksr-libev/Makefile
+    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/281677160/common/main/Share/shadowsocksr-libev/Makefile
   fi
   # 降低shadowsocks-rust版本,最新版本编译不成功
   if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocks-rust/Makefile
+    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/281677160/common/main/Share/shadowsocks-rust/Makefile
   fi
 fi
 }
@@ -678,7 +719,7 @@ if [[ "${REPO_BRANCH}" =~ (openwrt-18.06|openwrt-18.06-k5.4|openwrt-21.02) ]]; t
   fi
   # 降低shadowsocks-rust版本,最新版本编译不成功
   if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocks-rust/Makefile
+    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/281677160/common/main/Share/shadowsocks-rust/Makefile
   fi
 fi
 if [[ "${REPO_BRANCH}" =~ (openwrt-18.06|openwrt-18.06-k5.4) ]]; then
@@ -709,11 +750,11 @@ if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02) ]]; then
 fi
 if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02|openwrt-22.03) ]]; then
   if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocksr-libev" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocksr-libev/Makefile
+    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/281677160/common/main/Share/shadowsocksr-libev/Makefile
   fi
   # 降低shadowsocks-rust版本,最新版本编译不成功
   if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocks-rust/Makefile
+    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/281677160/common/main/Share/shadowsocks-rust/Makefile
   fi
 fi
 }
@@ -895,7 +936,7 @@ if [[ "${Customized_Information}" == "0" ]] || [[ -z "${Customized_Information}"
   echo "不进行,个性签名设置"
 elif [[ -n "${Customized_Information}" ]]; then
   sed -i "s?DESCRIPTION=.*?DESCRIPTION='OpenWrt '\" >> /etc/openwrt_release?g" "${ZZZ_PATH}"
-  sed -i "s?OpenWrt ?${Customized_Information} OpenWrt Li [2024] Compiled by Li OpenWrt ?g" "${ZZZ_PATH}"
+  sed -i "s?OpenWrt ?${Customized_Information} @ OpenWrt ?g" "${ZZZ_PATH}"
   echo "个性签名[${Customized_Information}]增加完成"
 fi
 
@@ -1292,7 +1333,7 @@ fi
 if [[ `grep -c "CONFIG_PACKAGE_luci-theme-argon=y" ${HOME_PATH}/.config` -eq '1' ]]; then
   pmg="$(echo "$(date +%M)" | sed 's/^.//g')"
   mkdir -p ${HOME_PATH}/files/www/luci-static/argon/background
-  curl -fsSL https://raw.githubusercontent.com/bootli/image/main/jpg/jpg/1.jpg -o ${HOME_PATH}/files/www/luci-static/argon/background/argon.jpg
+  curl -fsSL https://raw.githubusercontent.com/281677160/openwrt-package/usb/argon/jpg/${pmg}.jpg -o ${HOME_PATH}/files/www/luci-static/argon/background/argon.jpg
   if [[ $? -ne 0 ]]; then
     echo "拉取文件错误,请检测网络"
     exit 1
@@ -1641,9 +1682,9 @@ fi
 if [[ ! "${weizhicpu}" == "1" ]] && [[ "${AdGuardHome_Core}" == "1" ]]; then
   echo "正在执行：给adguardhome下载核心"
   rm -rf ${HOME_PATH}/AdGuardHome && rm -rf ${HOME_PATH}/files/usr/bin
-  wget -q https://github.com/bootli/common/releases/download/API/AdGuardHome.api -O AdGuardHome.api
+  wget -q https://github.com/281677160/common/releases/download/API/AdGuardHome.api -O AdGuardHome.api
   if [[ $? -ne 0 ]];then
-    curl -fsSL https://github.com/bootli/common/releases/download/API/AdGuardHome.api -o AdGuardHome.api
+    curl -fsSL https://github.com/281677160/common/releases/download/API/AdGuardHome.api -o AdGuardHome.api
   fi
   latest_ver="$(grep -E 'tag_name' 'AdGuardHome.api' |grep -E 'v[0-9.]+' -o 2>/dev/null)"
   rm -rf AdGuardHome.api
@@ -1759,7 +1800,7 @@ export kernel_repo="ophub/kernel"
 [[ -z "${kernel_usage}" ]] && export kernel_usage="stable"
 [[ -z "${UPLOAD_WETRANSFER}" ]] && export UPLOAD_WETRANSFER="true"
 if [[ -z "${amlogic_kernel}" ]]; then
-  curl -fsSL https://github.com/bootli/common/releases/download/API/${kernel_usage}.api -o ${HOME_PATH}/${kernel_usage}.api
+  curl -fsSL https://github.com/281677160/common/releases/download/API/${kernel_usage}.api -o ${HOME_PATH}/${kernel_usage}.api
   export amlogic_kernel="$(grep -Eo '"name": "[0-9]+\.[0-9]+\.[0-9]+\.tar.gz"' ${HOME_PATH}/${kernel_usage}.api |grep -Eo "[0-9]+\.[0-9]+\.[0-9]+" |awk 'END {print}' |sed s/[[:space:]]//g)"
   [[ -z "${amlogic_kernel}" ]] && export amlogic_kernel="5.10.170"
 fi
@@ -1821,7 +1862,7 @@ else
   sudo ./make -b ${amlogic_model} -k ${amlogic_kernel} -a ${auto_kernel} -s ${rootfs_size} -r ${kernel_repo} -u ${kernel_usage}
 fi
 if [[ 0 -eq $? ]]; then
-  sudo mv -f ${GITHUB_WORKSPACE}/amlogic/out/* ${FIRMWARE_PATH}/ && sync
+  sudo mv -f ${GITHUB_WORKSPACE}/amlogic/openwrt/out/* ${FIRMWARE_PATH}/ && sync
   sudo rm -rf ${GITHUB_WORKSPACE}/amlogic
   echo "FIRMWARE_PATH=${FIRMWARE_PATH}" >> ${GITHUB_ENV}
   echo
