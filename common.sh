@@ -467,8 +467,6 @@ done
 
 # 更换golang版本
 rm -rf ${HOME_PATH}/feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 21.x ${HOME_PATH}/feeds/packages/lang/golang
-#添加
 rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-adguardhome
 rm -rf ${HOME_PATH}/feeds/kenzo/adguardhome
 rm -rf ${HOME_PATH}/feeds/packages/net/adguardhome
@@ -513,8 +511,9 @@ rm -rf ${HOME_PATH}/package/lean/luci-app-argon-config
 rm -rf ${HOME_PATH}/package/lean/luci-theme-edge
 rm -rf ${HOME_PATH}/package/lean/luci-theme-neobird
 rm -rf ${HOME_PATH}/package/lean/luci-theme-opentopd
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon ${HOME_PATH}/package/lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config ${HOME_PATH}/package/lean/luci-app-argon-config
+git clone https://github.com/sbwml/packages_lang_golang -b 21.x ${HOME_PATH}/feeds/packages/lang/golang
+git clone https://github.com/jerrykuku/luci-theme-argon -b 18.06  ${HOME_PATH}/package/lean/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config  -b 18.06 ${HOME_PATH}/package/lean/luci-app-argon-config
 git clone https://github.com/bootli/luci-app-v2ray-server ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
 git clone https://github.com/bootli/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
 git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
