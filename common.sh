@@ -467,47 +467,8 @@ done
 
 # 更换golang版本
 rm -rf ${HOME_PATH}/feeds/packages/lang/golang
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-adguardhome
-rm -rf ${HOME_PATH}/feeds/kenzo/adguardhome
-rm -rf ${HOME_PATH}/feeds/packages/net/adguardhome
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-godproxy
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-ikoolproxy
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-tencentddns
-rm -rf ${HOME_PATH}/feeds/kenzo/diy/.packages/luci-app-adguardhome
-rm -rf ${HOME_PATH}/feeds/kenzo/diy/.packages/adguardhome
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-neobird
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-edge
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-fileassistant
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-socat
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-upnp
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-advanced
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-aliyundrive-fuse
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-aliyundrive-webdav
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-amule
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-openvpn-server
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-softethervpn
-rm -rf ${HOME_PATH}/feeds/luci/themes/luci-theme-argon
-rm -rf ${HOME_PATH}/feeds/luci/themes/luci-theme-argon-mod
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-baidupcs-web
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-wrtbwmon
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-xlnetacc
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-tencentddns
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-jd-dailybonus
-rm -rf ${HOME_PATH}/feeds/kenzo/alist
-rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-alist
-rm -rf ${HOME_PATH}/package/lean/autosamba
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-netdata
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
-rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba
-rm -rf ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav
-rm -rf ${HOME_PATH}/package/lean/luci-theme-edge
-rm -rf ${HOME_PATH}/package/lean/luci-theme-neobird
-rm -rf ${HOME_PATH}/package/lean/luci-theme-opentopd
+
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x ${HOME_PATH}/feeds/packages/lang/golang
-git clone https://github.com/bootli/luci-app-v2ray-server ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
-git clone https://github.com/bootli/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
 git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
 git clone https://github.com/sirpdboy/luci-app-ddns-go ${HOME_PATH}/package/ddns-go
 git clone https://github.com/messense/aliyundrive-webdav ${HOME_PATH}/package/li
