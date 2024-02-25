@@ -546,6 +546,12 @@ sed -i '/exit 0$/d' "${DEFAULT_PATH}"
 sed -i "s?112233?${SOURCE} - ${LUCI_EDITION}?g" "${DEFAULT_PATH}" > /dev/null 2>&1
 sed -i 's/root:.*/root::0:0:99999:7:::/g' ${FILES_PATH}/etc/shadow
 #添加
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-argon-config
+rm -rf ${HOME_PATH}/feeds/luci/themes/luci-theme-argon
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-argon
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-argon-config
+rm -rf ${HOME_PATH}/package/lean/luci-theme-argon
+rm -rf ${HOME_PATH}/package/lean/luci-app-argon-config
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-ikoolproxy
 rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-ikoolproxy
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
@@ -1199,20 +1205,20 @@ mkdir -p ${HOME_PATH}/files/etc/hotplug.d/block
 cp -Rf ${HOME_PATH}/build/common/custom/10-mount ${HOME_PATH}/files/etc/hotplug.d/block/10-mount
 fi
 
-#if [[ "${Disable_autosamba}" == "1" ]]; then
-#sed -i '/luci-i18n-samba/d; /PACKAGE_samba/d; /SAMBA_MAX/d; /SAMBA4_SERVER/d' "${HOME_PATH}/.config"
-#echo '
+if [[ "${Disable_autosamba}" == "1" ]]; then
+sed -i '/luci-i18n-samba/d; /PACKAGE_samba/d; /SAMBA_MAX/d; /SAMBA4_SERVER/d' "${HOME_PATH}/.config"
+echo '
 # CONFIG_PACKAGE_autosamba is not set
 # CONFIG_PACKAGE_luci-app-samba is not set
 # CONFIG_PACKAGE_luci-app-samba4 is not set
 # CONFIG_PACKAGE_samba36-server is not set
 # CONFIG_PACKAGE_samba4-libs is not set
 # CONFIG_PACKAGE_samba4-server is not set
-#' >> ${HOME_PATH}/.config
-#else
-#sed -i '/luci-app-samba/d; /CONFIG_PACKAGE_samba/d' "${HOME_PATH}/.config"
-#echo "CONFIG_PACKAGE_autosamba=y" >> ${HOME_PATH}/.config
-#fi
+' >> ${HOME_PATH}/.config
+else
+sed -i '/luci-app-samba/d; /CONFIG_PACKAGE_samba/d' "${HOME_PATH}/.config"
+echo "CONFIG_PACKAGE_autosamba=y" >> ${HOME_PATH}/.config
+fi
 
 cat >> "${HOME_PATH}/.config" <<-EOF
 CONFIG_PACKAGE_luci=y
