@@ -549,7 +549,9 @@ sed -i 's/root:.*/root::0:0:99999:7:::/g' ${FILES_PATH}/etc/shadow
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-argon-config
 rm -rf ${HOME_PATH}/feeds/luci/themes/luci-theme-argon
 rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-argon
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-argone
 rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-argon-config
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-argone-config
 rm -rf ${HOME_PATH}/package/lean/luci-theme-argon
 rm -rf ${HOME_PATH}/package/lean/luci-app-argon-config
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-ikoolproxy
