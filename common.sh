@@ -307,12 +307,13 @@ if [[ -f "${HOME_PATH}/feeds/luci/modules/luci-mod-system/root/usr/share/luci/me
 else
   echo "#src-git danshui2 https://github.com/281677160/openwrt-package.git;Theme1" >> "feeds.conf.default"
 fi
+#删除
 z="*luci-theme-argon*,*luci-app-argon-config*,*luci-theme-Butterfly*,*luci-theme-netgear*,*luci-theme-atmaterial*, \
-luci-theme-rosy,luci-theme-darkmatter,luci-theme-infinityfreedom,luci-theme-design,luci-app-design-config, \
-luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat, \
-luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-wol,luci-app-openclash, \
-luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,msd_lite, \
-luci-app-ssr-plus,*luci-app-passwall*,luci-app-vssr,lua-maxminddb"
+*luci-theme-rosy*,*luci-theme-darkmatter*,*luci-theme-infinityfreedom*,*luci-theme-design*,*luci-app-design-config*, \
+*luci-theme-bootstrap-mod*,*luci-theme-freifunk-generic*,*luci-theme-opentomato*,*luci-theme-kucat*, \
+*luci-app-eqos*,*adguardhome*,*luci-app-adguardhome*,*mosdns*,*luci-app-mosdns*,*luci-app-wol*,*luci-app-openclash*, \
+*luci-app-gost*,*gost*,*luci-app-smartdns*,*smartdns*,*luci-app-wizard*,*luci-app-msd_lite,msd_lite*, \
+*luci-app-ssr-plus*,*luci-app-passwall*,*luci-app-vssr*,*lua-maxminddb*"
 t=(${z//,/ })
 for x in ${t[@]}; do \
   find . -type d -name "${x}" |grep -v 'danshui\|freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
