@@ -330,9 +330,9 @@ COOLSNOWWOLF)
       curl -fsSL https://raw.githubusercontent.com/lede-project/source/master/target/linux/ramips/$i/config-5.15 -o ${HOME_PATH}/target/linux/ramips/$i/config-5.15; \
     done
   fi
-  #if [[ -d "${HOME_PATH}/build/common/Share/btrfs-progs" ]]; then
-    rm -rf ${HOME_PATH}/feeds/packages/utils/btrfs-progs
-    cp -Rf ${HOME_PATH}/build/common/Share/btrfs-progs ${HOME_PATH}/feeds/packages/utils/btrfs-progs
+  if [[ -d "${HOME_PATH}/build/common/Share/btrfs-progs" ]]; then
+    #rm -rf ${HOME_PATH}/feeds/packages/utils/btrfs-progs
+    #cp -Rf ${HOME_PATH}/build/common/Share/btrfs-progs ${HOME_PATH}/feeds/packages/utils/btrfs-progs
   fi
 ;;
 LIENOL)
@@ -348,29 +348,29 @@ LIENOL)
       find . -type d -name "${i}" |grep -v 'freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
     done
     if [[ -d "${HOME_PATH}/build/common/Share/libcap" ]]; then
-      rm -rf ${HOME_PATH}/feeds/packages/libs/libcap
-      cp -Rf ${HOME_PATH}/build/common/Share/libcap ${HOME_PATH}/feeds/packages/libs/libcap
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/libcap
+      #cp -Rf ${HOME_PATH}/build/common/Share/libcap ${HOME_PATH}/feeds/packages/libs/libcap
     fi
     if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
-      rm -rf ${HOME_PATH}/tools/cmake
-      cp -Rf ${HOME_PATH}/build/common/Share/cmake ${HOME_PATH}/tools/cmake
-      rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
-      cp -Rf ${HOME_PATH}/build/common/Share/ruby ${HOME_PATH}/feeds/packages/lang/ruby
-      rm -rf ${HOME_PATH}/feeds/packages/libs/yaml
-      cp -Rf ${HOME_PATH}/build/common/Share/yaml ${HOME_PATH}/feeds/packages/libs/yaml
+      #rm -rf ${HOME_PATH}/tools/cmake
+      #cp -Rf ${HOME_PATH}/build/common/Share/cmake ${HOME_PATH}/tools/cmake
+      #rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
+      #cp -Rf ${HOME_PATH}/build/common/Share/ruby ${HOME_PATH}/feeds/packages/lang/ruby
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/yaml
+      #cp -Rf ${HOME_PATH}/build/common/Share/yaml ${HOME_PATH}/feeds/packages/libs/yaml
     fi
   elif [[ "${REPO_BRANCH}" == "21.02" ]]; then
     find . -type d -name "luci-app-unblockneteasemusic" |xargs -i rm -rf {}
     if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
-      rm -rf ${HOME_PATH}/tools/cmake
-      cp -Rf ${HOME_PATH}/build/common/Share/cmake ${HOME_PATH}/tools/cmake
+      #rm -rf ${HOME_PATH}/tools/cmake
+      #cp -Rf ${HOME_PATH}/build/common/Share/cmake ${HOME_PATH}/tools/cmake
     fi
   elif [[ "${REPO_BRANCH}" == "22.03" ]]; then
     if [[ -d "${HOME_PATH}/build/common/Share/glib2" ]]; then
-      rm -rf ${HOME_PATH}/feeds/packages/libs/glib2
-      cp -Rf ${HOME_PATH}/build/common/Share/glib2 ${HOME_PATH}/feeds/packages/libs/glib2
-      rm -rf ${HOME_PATH}/feeds/packages/libs/pcre2
-      cp -Rf ${HOME_PATH}/build/common/Share/pcre2 ${HOME_PATH}/feeds/packages/libs/pcre2
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/glib2
+      #cp -Rf ${HOME_PATH}/build/common/Share/glib2 ${HOME_PATH}/feeds/packages/libs/glib2
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/pcre2
+      #cp -Rf ${HOME_PATH}/build/common/Share/pcre2 ${HOME_PATH}/feeds/packages/libs/pcre2
     fi
   elif [[ "${REPO_BRANCH}" == "23.05" ]]; then
     sed -i 's/CONFIG_WERROR=y/# CONFIG_WERROR is not set/g' ${HOME_PATH}/target/linux/generic/config-5.15
@@ -396,22 +396,22 @@ OFFICIAL)
       find . -type d -name "${i}" |grep -v 'freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
     done
     if [[ -d "${HOME_PATH}/build/common/Share/libcap" ]]; then
-      rm -rf ${HOME_PATH}/feeds/packages/libs/libcap
-      cp -Rf ${HOME_PATH}/build/common/Share/libcap ${HOME_PATH}/feeds/packages/libs/libcap
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/libcap
+      #cp -Rf ${HOME_PATH}/build/common/Share/libcap ${HOME_PATH}/feeds/packages/libs/libcap
     fi
-    if [[ -d "${HOME_PATH}/build/common/Share/luci-app-ttyd" ]]; then
-      find . -type d -name 'luci-app-ttyd' -o -name 'ttyd' |grep -v 'Share' | xargs -i rm -rf {}
-      cp -Rf ${HOME_PATH}/build/common/Share/luci-app-ttyd ${HOME_PATH}/feeds/luci/applications/luci-app-ttyd
-      cp -Rf ${HOME_PATH}/build/common/Share/ttyd ${HOME_PATH}/feeds/packages/utils/ttyd
-    fi
-    if [[ -d "${HOME_PATH}/build/common/Share/luci-app-samba4" ]]; then
-      find . -type d -name 'luci-app-samba4' -o -name 'samba4' |grep -v 'Share\|freifunk\|helloworld\|passwall3' | xargs -i rm -rf {}
-      cp -Rf ${HOME_PATH}/build/common/Share/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
-      cp -Rf ${HOME_PATH}/build/common/Share/samba4 ${HOME_PATH}/feeds/packages/net/samba4
-      rm -rf ${HOME_PATH}/feeds/packages/libs/liburing
-      cp -Rf ${HOME_PATH}/build/common/Share/liburing ${HOME_PATH}/feeds/packages/libs/liburing
-      rm -rf ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
-      cp -Rf ${HOME_PATH}/build/common/Share/perl-parse-yapp ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
+    #if [[ -d "${HOME_PATH}/build/common/Share/luci-app-ttyd" ]]; then
+      #find . -type d -name 'luci-app-ttyd' -o -name 'ttyd' |grep -v 'Share' | xargs -i rm -rf {}
+      #cp -Rf ${HOME_PATH}/build/common/Share/luci-app-ttyd ${HOME_PATH}/feeds/luci/applications/luci-app-ttyd
+      #cp -Rf ${HOME_PATH}/build/common/Share/ttyd ${HOME_PATH}/feeds/packages/utils/ttyd
+    #fi
+    #if [[ -d "${HOME_PATH}/build/common/Share/luci-app-samba4" ]]; then
+     # find . -type d -name 'luci-app-samba4' -o -name 'samba4' |grep -v 'Share\|freifunk\|helloworld\|passwall3' | xargs -i rm -rf {}
+      #cp -Rf ${HOME_PATH}/build/common/Share/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
+      #cp -Rf ${HOME_PATH}/build/common/Share/samba4 ${HOME_PATH}/feeds/packages/net/samba4
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/liburing
+      #cp -Rf ${HOME_PATH}/build/common/Share/liburing ${HOME_PATH}/feeds/packages/libs/liburing
+      #rm -rf ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
+      #cp -Rf ${HOME_PATH}/build/common/Share/perl-parse-yapp ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
     fi
     svn_co 21.02 https://github.com/Lienol/openwrt tools/cmake tools/cmake
   fi
@@ -425,30 +425,30 @@ OFFICIAL)
       find . -type d -name 'luci-app-samba4' -o -name 'samba4' |grep -v 'Share\|freifunk\|helloworld\|passwall3' | xargs -i rm -rf {}
       cp -Rf ${HOME_PATH}/build/common/Share/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
       cp -Rf ${HOME_PATH}/build/common/Share/samba4 ${HOME_PATH}/feeds/packages/net/samba4
-      rm -rf ${HOME_PATH}/feeds/packages/libs/liburing
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/liburing
       cp -Rf ${HOME_PATH}/build/common/Share/liburing ${HOME_PATH}/feeds/packages/libs/liburing
-      rm -rf ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
+      #rm -rf ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
       cp -Rf ${HOME_PATH}/build/common/Share/perl-parse-yapp ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
     fi
     if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
-      rm -rf ${HOME_PATH}/tools/cmake
+      #rm -rf ${HOME_PATH}/tools/cmake
       cp -Rf ${HOME_PATH}/build/common/Share/cmake ${HOME_PATH}/tools/cmake
-      rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
+      #rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
       cp -Rf ${HOME_PATH}/build/common/Share/ruby ${HOME_PATH}/feeds/packages/lang/ruby
-      rm -rf ${HOME_PATH}/feeds/packages/libs/yaml
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/yaml
       cp -Rf ${HOME_PATH}/build/common/Share/yaml ${HOME_PATH}/feeds/packages/libs/yaml
     fi
   fi
   if [[ "${REPO_BRANCH}" == "openwrt-22.03" ]]; then
     if [[ -d "${HOME_PATH}/build/common/Share/glib2" ]]; then
-      rm -rf ${HOME_PATH}/feeds/packages/libs/glib2
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/glib2
       cp -Rf ${HOME_PATH}/build/common/Share/glib2 ${HOME_PATH}/feeds/packages/libs/glib2
-      rm -rf ${HOME_PATH}/feeds/packages/libs/pcre2
+      #rm -rf ${HOME_PATH}/feeds/packages/libs/pcre2
       cp -Rf ${HOME_PATH}/build/common/Share/pcre2 ${HOME_PATH}/feeds/packages/libs/pcre2
     fi
   fi
   if [[ -d "${HOME_PATH}/build/common/Share/tailscale" ]]; then
-    rm -rf ${HOME_PATH}/feeds/packages/net/tailscale
+    #rm -rf ${HOME_PATH}/feeds/packages/net/tailscale
     cp -Rf ${HOME_PATH}/build/common/Share/tailscale ${HOME_PATH}/feeds/packages/net/tailscale
   fi
 ;;
@@ -466,20 +466,20 @@ for X in $(ls -1 "${HOME_PATH}/feeds/passwall3"); do
 done
 
 # 更换golang版本
-rm -rf ${HOME_PATH}/feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 21.x ${HOME_PATH}/feeds/packages/lang/golang
+#rm -rf ${HOME_PATH}/feeds/packages/lang/golang
+#git clone https://github.com/sbwml/packages_lang_golang -b 21.x ${HOME_PATH}/feeds/packages/lang/golang
 
 if [[ -d "${HOME_PATH}/feeds/danshui1/relevance/shadowsocks-libev" ]]; then
-  rm -rf ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
+  #rm -rf ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
   mv -f feeds/danshui1/relevance/shadowsocks-libev ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
 fi
 if [[ -d "${HOME_PATH}/feeds/danshui1/relevance/kcptun" ]]; then
-  rm -rf ${HOME_PATH}/feeds/packages/net/kcptun
+  #rm -rf ${HOME_PATH}/feeds/packages/net/kcptun
   mv -f ${HOME_PATH}/feeds/danshui1/relevance/kcptun ${HOME_PATH}/feeds/packages/net/kcptun
 fi
 
 if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
-  cp -Rf ${HOME_PATH}/build/common/Share/rust ${HOME_PATH}/feeds/packages/lang/rust
+  #cp -Rf ${HOME_PATH}/build/common/Share/rust ${HOME_PATH}/feeds/packages/lang/rust
 fi
 
 [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]] && cp -Rf ${HOME_PATH}/build/common/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
@@ -504,10 +504,10 @@ fi
 
 Settings_path="$(find "${HOME_PATH}/package" -type d -name "default-settings")"
 if [[ -z "${Settings_path}" ]] && [[ "${LUCI_BANBEN}" == "2" ]]; then
-  cp -Rf ${HOME_PATH}/build/common/Share/default-settings2 ${HOME_PATH}/package/default-settings
+  #cp -Rf ${HOME_PATH}/build/common/Share/default-settings2 ${HOME_PATH}/package/default-settings
   [[ ! -d "${HOME_PATH}/feeds/luci/libs/luci-lib-base" ]] && sed -i "s/+luci-lib-base //g" ${HOME_PATH}/package/default-settings/Makefile
 elif [[ -z "${Settings_path}" ]] && [[ "${LUCI_BANBEN}" == "1" ]]; then
-  cp -Rf ${HOME_PATH}/build/common/Share/default-settings1 ${HOME_PATH}/package/default-settings
+  #cp -Rf ${HOME_PATH}/build/common/Share/default-settings1 ${HOME_PATH}/package/default-settings
 fi
 
 ZZZ_PATH="$(find "${HOME_PATH}/package" -type f -name "*-default-settings" |grep files)"
@@ -720,8 +720,8 @@ cd ${HOME_PATH}
 # 修改v2raya的kmod-nft-tproxy依赖
 if [[ "${REPO_BRANCH}" =~ (19.07|21.02) ]]; then
   if [[ -d "${HOME_PATH}/build/common/Share/v2raya" ]]; then
-    rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
-    cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
+    #rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
+    #cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
   fi
 fi
 # 取消shadowsocksr-libev的libopenssl-legacy依赖
@@ -741,8 +741,8 @@ function Diy_IMMORTALWRT() {
 cd ${HOME_PATH}
 if [[ "${REPO_BRANCH}" =~ (openwrt-18.06|openwrt-18.06-k5.4|openwrt-21.02) ]]; then
   if [[ -d "${HOME_PATH}/build/common/Share/v2raya" ]]; then
-    rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
-    cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
+    #rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
+    #cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
   fi
   # 降低shadowsocks-rust版本,最新版本编译不成功
   if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
@@ -751,12 +751,12 @@ if [[ "${REPO_BRANCH}" =~ (openwrt-18.06|openwrt-18.06-k5.4|openwrt-21.02) ]]; t
 fi
 if [[ "${REPO_BRANCH}" =~ (openwrt-18.06|openwrt-18.06-k5.4) ]]; then
   # 升级node版本
-  rm -rf ${HOME_PATH}/feeds/packages/lang/node
+  #rm -rf ${HOME_PATH}/feeds/packages/lang/node
   git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-22.03 ${HOME_PATH}/feeds/packages/lang/node
   # 增加缺少的bmx6
   if [[ -d "${HOME_PATH}/build/common/Share/bmx6" ]]; then
-    rm -rf ${HOME_PATH}/feeds/routing/bmx6
-    cp -Rf ${HOME_PATH}/build/common/Share/bmx6 ${HOME_PATH}/feeds/routing/bmx6
+    #rm -rf ${HOME_PATH}/feeds/routing/bmx6
+    #cp -Rf ${HOME_PATH}/build/common/Share/bmx6 ${HOME_PATH}/feeds/routing/bmx6
   fi
 fi
 }
@@ -771,8 +771,8 @@ function Diy_OFFICIAL() {
 cd ${HOME_PATH}
 if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02) ]]; then
   if [[ -d "${HOME_PATH}/build/common/Share/v2raya" ]]; then
-    rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
-    cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
+    #rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
+    #cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
   fi
 fi
   #if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02|openwrt-22.03) ]]; then
