@@ -307,13 +307,12 @@ if [[ -f "${HOME_PATH}/feeds/luci/modules/luci-mod-system/root/usr/share/luci/me
 else
   echo "#src-git danshui2 https://github.com/281677160/openwrt-package.git;Theme1" >> "feeds.conf.default"
 fi
-#删除
 z="*luci-theme-argon*,*luci-app-argon-config*,*luci-theme-Butterfly*,*luci-theme-netgear*,*luci-theme-atmaterial*, \
-*luci-theme-rosy*,*luci-theme-darkmatter*,*luci-theme-infinityfreedom*,*luci-theme-design*,*luci-app-design-config*, \
-*luci-theme-bootstrap-mod*,*luci-theme-freifunk-generic*,*luci-theme-opentomato*,*luci-theme-kucat*, \
-*luci-app-eqos*,*adguardhome*,*luci-app-adguardhome*,*mosdns*,*luci-app-mosdns*,*luci-app-wol*,*luci-app-openclash*, \
-*luci-app-gost*,*gost*,*luci-app-smartdns*,*smartdns*,*luci-app-wizard*,*luci-app-msd_lite,msd_lite*, \
-*luci-app-ssr-plus*,*luci-app-passwall*,*luci-app-vssr*,*lua-maxminddb*"
+luci-theme-rosy,luci-theme-darkmatter,luci-theme-infinityfreedom,luci-theme-design,luci-app-design-config, \
+luci-theme-bootstrap-mod,luci-theme-freifunk-generic,luci-theme-opentomato,luci-theme-kucat, \
+luci-app-eqos,adguardhome,luci-app-adguardhome,mosdns,luci-app-mosdns,luci-app-wol,luci-app-openclash, \
+luci-app-gost,gost,luci-app-smartdns,smartdns,luci-app-wizard,luci-app-msd_lite,msd_lite, \
+luci-app-ssr-plus,*luci-app-passwall*,luci-app-vssr,lua-maxminddb"
 t=(${z//,/ })
 for x in ${t[@]}; do \
   find . -type d -name "${x}" |grep -v 'danshui\|freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
@@ -331,7 +330,7 @@ COOLSNOWWOLF)
       curl -fsSL https://raw.githubusercontent.com/lede-project/source/master/target/linux/ramips/$i/config-5.15 -o ${HOME_PATH}/target/linux/ramips/$i/config-5.15; \
     done
   fi
-  if [[ -d "${HOME_PATH}/build/common/Share/btrfs-progs" ]]; then
+  #if [[ -d "${HOME_PATH}/build/common/Share/btrfs-progs" ]]; then
     rm -rf ${HOME_PATH}/feeds/packages/utils/btrfs-progs
     cp -Rf ${HOME_PATH}/build/common/Share/btrfs-progs ${HOME_PATH}/feeds/packages/utils/btrfs-progs
   fi
@@ -348,11 +347,11 @@ LIENOL)
     for i in ${c[@]}; do \
       find . -type d -name "${i}" |grep -v 'freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
     done
-    if [[ -d "${HOME_PATH}/build/common/Share/libcap" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/libcap" ]]; then
       rm -rf ${HOME_PATH}/feeds/packages/libs/libcap
       cp -Rf ${HOME_PATH}/build/common/Share/libcap ${HOME_PATH}/feeds/packages/libs/libcap
     fi
-    if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
       rm -rf ${HOME_PATH}/tools/cmake
       cp -Rf ${HOME_PATH}/build/common/Share/cmake ${HOME_PATH}/tools/cmake
       rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
@@ -362,12 +361,12 @@ LIENOL)
     fi
   elif [[ "${REPO_BRANCH}" == "21.02" ]]; then
     find . -type d -name "luci-app-unblockneteasemusic" |xargs -i rm -rf {}
-    if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
+   #if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
       rm -rf ${HOME_PATH}/tools/cmake
       cp -Rf ${HOME_PATH}/build/common/Share/cmake ${HOME_PATH}/tools/cmake
     fi
   elif [[ "${REPO_BRANCH}" == "22.03" ]]; then
-    if [[ -d "${HOME_PATH}/build/common/Share/glib2" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/glib2" ]]; then
       rm -rf ${HOME_PATH}/feeds/packages/libs/glib2
       cp -Rf ${HOME_PATH}/build/common/Share/glib2 ${HOME_PATH}/feeds/packages/libs/glib2
       rm -rf ${HOME_PATH}/feeds/packages/libs/pcre2
@@ -396,16 +395,16 @@ OFFICIAL)
     for i in ${c[@]}; do \
       find . -type d -name "${i}" |grep -v 'freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
     done
-    if [[ -d "${HOME_PATH}/build/common/Share/libcap" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/libcap" ]]; then
       rm -rf ${HOME_PATH}/feeds/packages/libs/libcap
       cp -Rf ${HOME_PATH}/build/common/Share/libcap ${HOME_PATH}/feeds/packages/libs/libcap
     fi
-    if [[ -d "${HOME_PATH}/build/common/Share/luci-app-ttyd" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/luci-app-ttyd" ]]; then
       find . -type d -name 'luci-app-ttyd' -o -name 'ttyd' |grep -v 'Share' | xargs -i rm -rf {}
       cp -Rf ${HOME_PATH}/build/common/Share/luci-app-ttyd ${HOME_PATH}/feeds/luci/applications/luci-app-ttyd
       cp -Rf ${HOME_PATH}/build/common/Share/ttyd ${HOME_PATH}/feeds/packages/utils/ttyd
     fi
-    if [[ -d "${HOME_PATH}/build/common/Share/luci-app-samba4" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/luci-app-samba4" ]]; then
       find . -type d -name 'luci-app-samba4' -o -name 'samba4' |grep -v 'Share\|freifunk\|helloworld\|passwall3' | xargs -i rm -rf {}
       cp -Rf ${HOME_PATH}/build/common/Share/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
       cp -Rf ${HOME_PATH}/build/common/Share/samba4 ${HOME_PATH}/feeds/packages/net/samba4
@@ -422,7 +421,7 @@ OFFICIAL)
     for i in ${c[@]}; do \
       find . -type d -name "${i}" |grep -v 'freifunk\|helloworld\|passwall3' |xargs -i rm -rf {}; \
     done
-    if [[ -d "${HOME_PATH}/build/common/Share/luci-app-samba4" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/luci-app-samba4" ]]; then
       find . -type d -name 'luci-app-samba4' -o -name 'samba4' |grep -v 'Share\|freifunk\|helloworld\|passwall3' | xargs -i rm -rf {}
       cp -Rf ${HOME_PATH}/build/common/Share/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
       cp -Rf ${HOME_PATH}/build/common/Share/samba4 ${HOME_PATH}/feeds/packages/net/samba4
@@ -431,7 +430,7 @@ OFFICIAL)
       rm -rf ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
       cp -Rf ${HOME_PATH}/build/common/Share/perl-parse-yapp ${HOME_PATH}/feeds/packages/lang/perl-parse-yapp
     fi
-    if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/cmake" ]]; then
       rm -rf ${HOME_PATH}/tools/cmake
       cp -Rf ${HOME_PATH}/build/common/Share/cmake ${HOME_PATH}/tools/cmake
       rm -rf ${HOME_PATH}/feeds/packages/lang/ruby
@@ -441,14 +440,14 @@ OFFICIAL)
     fi
   fi
   if [[ "${REPO_BRANCH}" == "openwrt-22.03" ]]; then
-    if [[ -d "${HOME_PATH}/build/common/Share/glib2" ]]; then
+    #if [[ -d "${HOME_PATH}/build/common/Share/glib2" ]]; then
       rm -rf ${HOME_PATH}/feeds/packages/libs/glib2
       cp -Rf ${HOME_PATH}/build/common/Share/glib2 ${HOME_PATH}/feeds/packages/libs/glib2
       rm -rf ${HOME_PATH}/feeds/packages/libs/pcre2
       cp -Rf ${HOME_PATH}/build/common/Share/pcre2 ${HOME_PATH}/feeds/packages/libs/pcre2
     fi
   fi
-  if [[ -d "${HOME_PATH}/build/common/Share/tailscale" ]]; then
+ #if [[ -d "${HOME_PATH}/build/common/Share/tailscale" ]]; then
     rm -rf ${HOME_PATH}/feeds/packages/net/tailscale
     cp -Rf ${HOME_PATH}/build/common/Share/tailscale ${HOME_PATH}/feeds/packages/net/tailscale
   fi
@@ -479,7 +478,7 @@ if [[ -d "${HOME_PATH}/feeds/danshui1/relevance/kcptun" ]]; then
   mv -f ${HOME_PATH}/feeds/danshui1/relevance/kcptun ${HOME_PATH}/feeds/packages/net/kcptun
 fi
 
-if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
+#if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
   cp -Rf ${HOME_PATH}/build/common/Share/rust ${HOME_PATH}/feeds/packages/lang/rust
 fi
 
@@ -504,10 +503,10 @@ else
 fi
 
 Settings_path="$(find "${HOME_PATH}/package" -type d -name "default-settings")"
-if [[ -z "${Settings_path}" ]] && [[ "${LUCI_BANBEN}" == "2" ]]; then
+#if [[ -z "${Settings_path}" ]] && [[ "${LUCI_BANBEN}" == "2" ]]; then
   cp -Rf ${HOME_PATH}/build/common/Share/default-settings2 ${HOME_PATH}/package/default-settings
   [[ ! -d "${HOME_PATH}/feeds/luci/libs/luci-lib-base" ]] && sed -i "s/+luci-lib-base //g" ${HOME_PATH}/package/default-settings/Makefile
-elif [[ -z "${Settings_path}" ]] && [[ "${LUCI_BANBEN}" == "1" ]]; then
+#elif [[ -z "${Settings_path}" ]] && [[ "${LUCI_BANBEN}" == "1" ]]; then
   cp -Rf ${HOME_PATH}/build/common/Share/default-settings1 ${HOME_PATH}/package/default-settings
 fi
 
