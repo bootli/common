@@ -466,8 +466,8 @@ for X in $(ls -1 "${HOME_PATH}/feeds/passwall3"); do
 done
 
 # 更换golang版本
-#rm -rf ${HOME_PATH}/feeds/packages/lang/golang
-#git clone https://github.com/sbwml/packages_lang_golang -b 21.x ${HOME_PATH}/feeds/packages/lang/golang
+rm -rf ${HOME_PATH}/feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 21.x ${HOME_PATH}/feeds/packages/lang/golang
 
 if [[ -d "${HOME_PATH}/feeds/danshui1/relevance/shadowsocks-libev" ]]; then
   rm -rf ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
@@ -775,15 +775,15 @@ if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02) ]]; then
     cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
   fi
 fi
-if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02|openwrt-22.03) ]]; then
-  if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocksr-libev" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocksr-libev/Makefile
-  fi
+  #if [[ "${REPO_BRANCH}" =~ (openwrt-19.07|openwrt-21.02|openwrt-22.03) ]]; then
+  # if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocksr-libev" ]]; then
+  #    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocksr-libev/Makefile
+  #  fi
   # 降低shadowsocks-rust版本,最新版本编译不成功
-  if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocks-rust/Makefile
-  fi
-fi
+  #  if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
+  #    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocks-rust/Makefile
+  #  fi
+  #fi
 }
 
 
@@ -1181,9 +1181,9 @@ echo '
 ' >> ${HOME_PATH}/.config
 fi
 
-if [[ "${Disable_NaiveProxy}" == "1" ]]; then
-sed -i '/NaiveProxy/d; /naiveproxy/d' ${HOME_PATH}/.config
-fi
+#if [[ "${Disable_NaiveProxy}" == "1" ]]; then
+#sed -i '/NaiveProxy/d; /naiveproxy/d' ${HOME_PATH}/.config
+#fi
 
 if [[ "${Automatic_Mount_Settings}" == "1" ]]; then
 echo '
