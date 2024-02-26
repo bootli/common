@@ -546,6 +546,10 @@ sed -i '/exit 0$/d' "${DEFAULT_PATH}"
 sed -i "s?112233?${SOURCE} - ${LUCI_EDITION}?g" "${DEFAULT_PATH}" > /dev/null 2>&1
 sed -i 's/root:.*/root::0:0:99999:7:::/g' ${FILES_PATH}/etc/shadow
 #添加
+rm -rf ${HOME_PATH}/feeds
+cd ${HOME_PATH}
+./scripts/feeds update -a
+./scripts/feeds install -a
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-argon-config
 rm -rf ${HOME_PATH}/feeds/luci/themes/luci-theme-argon
 rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-argon
@@ -571,6 +575,7 @@ git clone https://github.com/bootli/luci-app-samba4 ${HOME_PATH}/feeds/luci/appl
 git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
 git clone https://github.com/sirpdboy/luci-app-ddns-go ${HOME_PATH}/package/ddns-go
 git clone https://github.com/messense/aliyundrive-webdav ${HOME_PATH}/package/li
+
 
 
 if [[ `grep -Eoc "admin:.*" ${FILES_PATH}/etc/shadow` -eq '1' ]]; then
