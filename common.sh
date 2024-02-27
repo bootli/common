@@ -465,9 +465,6 @@ for X in $(ls -1 "${HOME_PATH}/feeds/passwall3"); do
   find . -type d -name "${X}" |grep -v 'danshui\|passwall3' |xargs -i rm -rf {}
 done
 
-# 更换golang版本
-rm -rf ${HOME_PATH}/feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x ${HOME_PATH}/feeds/packages/lang/golang
 
 #if [[ -d "${HOME_PATH}/feeds/danshui1/relevance/shadowsocks-libev" ]]; then
 #  rm -rf ${HOME_PATH}/feeds/packages/net/shadowsocks-libev
@@ -576,6 +573,9 @@ git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
 git clone https://github.com/sirpdboy/luci-app-ddns-go ${HOME_PATH}/package/ddns-go
 git clone https://github.com/messense/aliyundrive-webdav ${HOME_PATH}/package/li
 
+# 更换golang版本
+rm -rf ${HOME_PATH}/feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x ${HOME_PATH}/feeds/packages/lang/golang
 
 
 if [[ `grep -Eoc "admin:.*" ${FILES_PATH}/etc/shadow` -eq '1' ]]; then
