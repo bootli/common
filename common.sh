@@ -536,6 +536,14 @@ TIME r ""
 
 
 
+function Diy_XWRT() {
+cd ${HOME_PATH}
+}
+
+
+
+
+
 function Diy_zdypartsh() {
 cd ${HOME_PATH}
 source $BUILD_PATH/$DIY_PART_SH
