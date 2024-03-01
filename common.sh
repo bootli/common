@@ -538,8 +538,8 @@ function Diy_COOLSNOWWOLF() {
 # 降低aliyundrive-webdav版本,新版本编译不成功
 #if [[ -f "${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav/Makefile" ]]; then
 #  curl -fsSL https://raw.githubusercontent.com/coolsnowwolf/packages/aea60b5432fad984c0a4013bad0f0c5e00dcd115/multimedia/aliyundrive-webdav/Makefile  -o ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-#webdav/Makefile 
-fi
-}
+#fi
+#}
 
 
 function Diy_LIENOL() {
