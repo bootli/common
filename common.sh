@@ -396,8 +396,8 @@ git clone https://github.com/sirpdboy/luci-app-ddns-go ${HOME_PATH}/package/ddns
 git clone https://github.com/messense/aliyundrive-webdav ${HOME_PATH}/package/li
 
 # 更换golang版本
-rm -rf ${HOME_PATH}/feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x ${HOME_PATH}/feeds/packages/lang/golang
+#rm -rf ${HOME_PATH}/feeds/packages/lang/golang
+#git clone https://github.com/sbwml/packages_lang_golang -b 22.x ${HOME_PATH}/feeds/packages/lang/golang
 
 
 if [[ `grep -Eoc "admin:.*" ${FILES_PATH}/etc/shadow` -eq '1' ]]; then
@@ -533,13 +533,13 @@ TIME r ""
 }
 
 
-#function Diy_COOLSNOWWOLF() {
-#cd ${HOME_PATH}
-# 降低aliyundrive-webdav版本,新版本编译不成功
-#if [[ -f "${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav/Makefile" ]]; then
-  #curl -fsSL https://raw.githubusercontent.com/coolsnowwolf/packages/aea60b5432fad984c0a4013bad0f0c5e00dcd115/multimedia/aliyundrive-webdav/Makefile  -o ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav/Makefile 
-#fi
-#}
+function Diy_COOLSNOWWOLF() {
+cd ${HOME_PATH}
+ 降低aliyundrive-webdav版本,新版本编译不成功
+if [[ -f "${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav1/Makefile" ]]; then
+  curl -fsSL https://raw.githubusercontent.com/coolsnowwolf/packages/aea60b5432fad984c0a4013bad0f0c5e00dcd115/multimedia/aliyundrive-webdav/Makefile  -o ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav/Makefile 
+fi
+}
 
 
 function Diy_LIENOL() {
