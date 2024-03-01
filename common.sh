@@ -330,10 +330,10 @@ COOLSNOWWOLF)
       curl -fsSL https://raw.githubusercontent.com/lede-project/source/master/target/linux/ramips/$i/config-5.15 -o ${HOME_PATH}/target/linux/ramips/$i/config-5.15; \
     done
   fi
-  if [[ -d "${HOME_PATH}/build/common/Share/btrfs-progs" ]]; then
-    rm -rf ${HOME_PATH}/feeds/packages/utils/btrfs-progs
-    cp -Rf ${HOME_PATH}/build/common/Share/btrfs-progs ${HOME_PATH}/feeds/packages/utils/btrfs-progs
-  fi
+ # if [[ -d "${HOME_PATH}/build/common/Share/btrfs-progs" ]]; then
+   # rm -rf ${HOME_PATH}/feeds/packages/utils/btrfs-progs
+   # cp -Rf ${HOME_PATH}/build/common/Share/btrfs-progs ${HOME_PATH}/feeds/packages/utils/btrfs-progs
+  #fi
 ;;
 LIENOL)
   s="mentohust,aliyundrive-webdav,pdnsd-alt,mt"
@@ -574,8 +574,8 @@ git clone https://github.com/sirpdboy/luci-app-ddns-go ${HOME_PATH}/package/ddns
 git clone https://github.com/messense/aliyundrive-webdav ${HOME_PATH}/package/li
 
 # 更换golang版本
-#rm -rf ${HOME_PATH}/feeds/packages/lang/golang
-#git clone https://github.com/sbwml/packages_lang_golang -b 22.x ${HOME_PATH}/feeds/packages/lang/golang
+rm -rf ${HOME_PATH}/feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x ${HOME_PATH}/feeds/packages/lang/golang
 
 
 if [[ `grep -Eoc "admin:.*" ${FILES_PATH}/etc/shadow` -eq '1' ]]; then
@@ -711,35 +711,35 @@ TIME r ""
 }
 
 
-function Diy_COOLSNOWWOLF() {
-cd ${HOME_PATH}
+#function Diy_COOLSNOWWOLF() {
+#cd ${HOME_PATH}
 # 降低aliyundrive-webdav版本,新版本编译不成功
-if [[ -f "${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav/Makefile" ]]; then
-  curl -fsSL https://raw.githubusercontent.com/coolsnowwolf/packages/aea60b5432fad984c0a4013bad0f0c5e00dcd115/multimedia/aliyundrive-webdav/Makefile  -o ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav/Makefile 
-fi
-}
-
-
-function Diy_LIENOL() {
-cd ${HOME_PATH}
+#if [[ -f "${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav/Makefile" ]]; then
+#  curl -fsSL https://raw.githubusercontent.com/coolsnowwolf/packages/aea60b5432fad984c0a4013bad0f0c5e00dcd115/multimedia/aliyundrive-webdav/Makefile  -o ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav/Makefile 
+#fi
+#}
+#
+#
+#function Diy_LIENOL() {
+#cd ${HOME_PATH}
 # 修改v2raya的kmod-nft-tproxy依赖
-if [[ "${REPO_BRANCH}" =~ (19.07|21.02) ]]; then
-  if [[ -d "${HOME_PATH}/build/common/Share/v2raya" ]]; then
-    rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
-    cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
-  fi
-fi
+#if [[ "${REPO_BRANCH}" =~ (19.07|21.02) ]]; then
+#  if [[ -d "${HOME_PATH}/build/common/Share/v2raya" ]]; then
+#    rm -rf ${HOME_PATH}/feeds/helloworld/v2raya
+#    cp -Rf ${HOME_PATH}/build/common/Share/v2raya ${HOME_PATH}/feeds/helloworld/v2raya
+#  fi
+#fi
 # 取消shadowsocksr-libev的libopenssl-legacy依赖
-if [[ "${REPO_BRANCH}" =~ (19.07|21.02|22.03) ]]; then
-  if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocksr-libev" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocksr-libev/Makefile
-  fi
+#if [[ "${REPO_BRANCH}" =~ (19.07|21.02|22.03) ]]; then
+#  if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocksr-libev" ]]; then
+#    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocksr-libev/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocksr-libev/Makefile
+#  fi
   # 降低shadowsocks-rust版本,最新版本编译不成功
-  if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
-    curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocks-rust/Makefile
-  fi
-fi
-}
+#  if [[ -d "${HOME_PATH}/feeds/passwall3/shadowsocks-rust" ]]; then
+   # curl -o ${HOME_PATH}/feeds/passwall3/shadowsocks-rust/Makefile https://raw.githubusercontent.com/bootli/common/main/Share/shadowsocks-rust/Makefile
+  #fi
+#fi
+#}
 
 
 function Diy_IMMORTALWRT() {
