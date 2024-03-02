@@ -377,6 +377,11 @@ rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-argon-config
 rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-argone-config
 rm -rf ${HOME_PATH}/package/lean/luci-theme-argon
 rm -rf ${HOME_PATH}/package/lean/luci-app-argon-config
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-adguardhome
+rm -rf ${HOME_PATH}/feeds/kenzo/adguardhome
+rm -rf ${HOME_PATH}/feeds/packages/net/adguardhome
+rm -rf ${HOME_PATH}/feeds/kenzo/diy/.packages/luci-app-adguardhome
+rm -rf ${HOME_PATH}/feeds/kenzo/diy/.packages/adguardhome
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-ikoolproxy
 rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-ikoolproxy
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
