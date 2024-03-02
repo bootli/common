@@ -583,8 +583,8 @@ if [[ "${REPO_BRANCH}" =~ (openwrt-18.06|openwrt-18.06-k5.4|openwrt-21.02) ]]; t
 fi
 if [[ "${REPO_BRANCH}" =~ (openwrt-18.06|openwrt-18.06-k5.4) ]]; then
   # 升级node版本
-  rm -rf ${HOME_PATH}/feeds/packages/lang/node
-  git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-22.03 ${HOME_PATH}/feeds/packages/lang/node
+  #rm -rf ${HOME_PATH}/feeds/packages/lang/node
+  #git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-22.03 ${HOME_PATH}/feeds/packages/lang/node
   # 增加缺少的bmx6
   if [[ -d "${HOME_PATH}/build/common/Share/bmx6" ]]; then
     rm -rf ${HOME_PATH}/feeds/routing/bmx6
