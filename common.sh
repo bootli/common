@@ -392,8 +392,8 @@ rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-netdata
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba
 rm -rf ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav
-git clone https://github.com/jerrykuku/luci-theme-argon ${HOME_PATH}/package/lean/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config ${HOME_PATH}/package/lean/luci-app-argon-config
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon ${HOME_PATH}/package/lean/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config ${HOME_PATH}/package/lean/luci-app-argon-config
 git clone https://github.com/bootli/luci-app-v2ray-server ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
 git clone https://github.com/bootli/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
 git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
