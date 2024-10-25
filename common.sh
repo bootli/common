@@ -364,8 +364,7 @@ sudo chmod +x "${DEFAULT_PATH}"
 sed -i '/exit 0$/d' "${DEFAULT_PATH}"
 sed -i "s?112233?${SOURCE} - ${LUCI_EDITION}?g" "${DEFAULT_PATH}" > /dev/null 2>&1
 sed -i 's/root:.*/root::0:0:99999:7:::/g' ${FILES_PATH}/etc/shadow
-sed -i 's/#src-git luci https://github.com/coolsnowwolf/luci /src-git luci https://github.com/coolsnowwolf/luci /g' /feeds.conf.default
-sed -i 's/src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05 /#src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-23.05 /g' /feeds.conf.default
+sed -i 's/luci.git;openwrt-23.05/luci/g' feeds.conf.default
 
 
 #添加
