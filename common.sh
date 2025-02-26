@@ -402,6 +402,7 @@ git clone https://github.com/bootli/luci-app-samba4 ${HOME_PATH}/feeds/luci/appl
 git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
 git clone https://github.com/sirpdboy/luci-app-ddns-go ${HOME_PATH}/package/ddns-go
 git clone https://github.com/messense/aliyundrive-webdav ${HOME_PATH}/package/li
+git clone https://github.com/destan19/OpenAppFilter ${HOME_PATH}/package/oaf
 
 # 更换golang版本
 rm -rf ${HOME_PATH}/feeds/packages/lang/golang
