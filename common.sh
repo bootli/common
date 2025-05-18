@@ -631,15 +631,15 @@ else
 fi
 
 # openclash
-find . -type d -name '*luci-app-openclash*' -o -name '*OpenClash*' | xargs -i rm -rf {}
-sed -i '/OpenClash/d' "feeds.conf.default"
-if [[ "${OpenClash_branch}" == "1" ]]; then
-  echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "feeds.conf.default"
-  echo "OpenClash_branch=dev" >> ${GITHUB_ENV}
-else
-  echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "feeds.conf.default"
-  echo "OpenClash_branch=master" >> ${GITHUB_ENV}
-fi
+#find . -type d -name '*luci-app-openclash*' -o -name '*OpenClash*' | xargs -i rm -rf {}
+#sed -i '/OpenClash/d' "feeds.conf.default"
+#if [[ "${OpenClash_branch}" == "1" ]]; then
+#  echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "feeds.conf.default"
+#  echo "OpenClash_branch=dev" >> ${GITHUB_ENV}
+#else
+#  echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "feeds.conf.default"
+#  echo "OpenClash_branch=master" >> ${GITHUB_ENV}
+#fi
 
 cat feeds.conf.default|awk '!/^#/'|awk '!/^$/'|awk '!a[$1" "$2]++{print}' >uniq.conf
 mv -f uniq.conf feeds.conf.default
@@ -694,19 +694,19 @@ else
 fi
 
 # openclash内核
-if [[ "${OpenClash_Core}" == "1" ]]; then
-  echo "OpenClash_Core=1" >> ${GITHUB_ENV}
-elif [[ "${OpenClash_Core}" == "2" ]]; then
-  echo "OpenClash_Core=2" >> ${GITHUB_ENV}
-else
-  echo "OpenClash_Core=0" >> ${GITHUB_ENV}
-  [[ -d "${HOME_PATH}/files/etc/openclash/core" ]] && rm -rf ${HOME_PATH}/files/etc/openclash/core
-fi
-luci_path="$({ find "${HOME_PATH}/feeds" |grep 'luci-openclash' |grep 'root'; } 2>"/dev/null")"
-if [[ -f "${luci_path}" ]] && [[ `grep -c "uci get openclash.config.enable" "${luci_path}"` -eq '0' ]]; then
-  sed -i '/uci -q set openclash.config.enable=0/i\if [[ "\$(uci get openclash.config.enable)" == "0" ]] || [[ -z "\$(uci get openclash.config.enable)" ]]; then' "${luci_path}"
-  sed -i '/uci -q commit openclash/a\fi' "${luci_path}"
-fi
+#if [[ "${OpenClash_Core}" == "1" ]]; then
+#  echo "OpenClash_Core=1" >> ${GITHUB_ENV}
+#elif [[ "${OpenClash_Core}" == "2" ]]; then
+#  echo "OpenClash_Core=2" >> ${GITHUB_ENV}
+#else
+#  echo "OpenClash_Core=0" >> ${GITHUB_ENV}
+#  [[ -d "${HOME_PATH}/files/etc/openclash/core" ]] && rm -rf ${HOME_PATH}/files/etc/openclash/core
+#fi
+#luci_path="$({ find "${HOME_PATH}/feeds" |grep 'luci-openclash' |grep 'root'; } 2>"/dev/null")"
+#if [[ -f "${luci_path}" ]] && [[ `grep -c "uci get openclash.config.enable" "${luci_path}"` -eq '0' ]]; then
+#  sed -i '/uci -q set openclash.config.enable=0/i\if [[ "\$(uci get openclash.config.enable)" == "0" ]] || [[ -z "\$(uci get openclash.config.enable)" ]]; then' "${luci_path}"
+#  sed -i '/uci -q commit openclash/a\fi' "${luci_path}"
+#fi
 
 if [[ "${Enable_IPV6_function}" == "1" ]]; then
   echo "固件加入IPV6功能"
@@ -1473,65 +1473,65 @@ else
   weizhicpu="1"
 fi
 
-if [[ ! "${weizhicpu}" == "1" ]] && [[ -n "${OpenClash_Core}" ]] && [[ "${OpenClash_branch}" =~ (master|dev) ]]; then
-  echo "正在执行：给openclash下载核心"
-  rm -rf ${HOME_PATH}/files/etc/openclash/core
-  rm -rf ${HOME_PATH}/clash-neihe && mkdir -p ${HOME_PATH}/clash-neihe
-  mkdir -p ${HOME_PATH}/files/etc/openclash/core
-  cd ${HOME_PATH}/clash-neihe
-  if [[ "${OpenClash_Core}" == "2" ]]; then
-    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/meta/clash-${Archclash}.tar.gz -O meta.tar.gz
-    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/dev/clash-${Archclash}.tar.gz -O clash.tar.gz
-    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/core_version -O core_version
-    TUN="$(cat core_version |grep -v "^v\|^V\|^a" |grep -E "[0-9]+.[0-9]+.[0-9]+")"
-    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/premium/clash-${Archclash}-${TUN}.gz -O clash_tun.gz
-    
-    tar -zxvf clash.tar.gz -O > clash
-    if [[ $? -eq 0 ]];then
-      mv -f ${HOME_PATH}/clash-neihe/clash ${HOME_PATH}/files/etc/openclash/core/clash
-      sudo chmod +x ${HOME_PATH}/files/etc/openclash/core/clash
-      echo "OpenClash增加dev内核成功"
-    else
-      echo "OpenClash增加dev内核失败"
-    fi
-    tar -zxvf meta.tar.gz -O > clash_meta
-    if [[ $? -eq 0 ]];then
-      mv -f ${HOME_PATH}/clash-neihe/clash_meta ${HOME_PATH}/files/etc/openclash/core/clash_meta
-      sudo chmod +x ${HOME_PATH}/files/etc/openclash/core/clash_meta
-      echo "OpenClash增加meta内核成功"
-    else
-      echo "OpenClash增加meta内核失败"
-    fi
-    gzip -d clash_tun.gz
-    if [[ $? -eq 0 ]];then
-      mv -f ${HOME_PATH}/clash-neihe/clash_tun ${HOME_PATH}/files/etc/openclash/core/clash_tun
-      sudo chmod +x ${HOME_PATH}/files/etc/openclash/core/clash_tun
-      echo "clash"
-      echo "OpenClash增加tun内核成功"
-    else
-      echo "OpenClash增加tun内核失败"
-    fi
-  elif [[ "${OpenClash_Core}" == "1" ]]; then
-    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/dev/clash-${Archclash}.tar.gz
-    if [[ $? -ne 0 ]];then
-      wget -q https://github.com/vernesong/OpenClash/releases/download/Clash/clash-${Archclash}.tar.gz
-    else
-      echo "OpenClash内核下载成功"
-    fi
-    tar -zxvf clash-${Archclash}.tar.gz
-    if [[ -f "${HOME_PATH}/clash-neihe/clash" ]]; then
-      mv -f ${HOME_PATH}/clash-neihe/clash ${HOME_PATH}/files/etc/openclash/core/clash
-      sudo chmod +x ${HOME_PATH}/files/etc/openclash/core/clash
-      echo "OpenClash增加内核成功"
-    else
-      echo "OpenClash增加内核失败"
-    fi
-  else
-    echo "无需内核"
-  fi
-  cd ${HOME_PATH}
-  rm -rf ${HOME_PATH}/clash-neihe
-fi
+#if [[ ! "${weizhicpu}" == "1" ]] && [[ -n "${OpenClash_Core}" ]] && [[ "${OpenClash_branch}" =~ (master|dev) ]]; then
+#  echo "正在执行：给openclash下载核心"
+#  rm -rf ${HOME_PATH}/files/etc/openclash/core
+#  rm -rf ${HOME_PATH}/clash-neihe && mkdir -p ${HOME_PATH}/clash-neihe
+#  mkdir -p ${HOME_PATH}/files/etc/openclash/core
+#  cd ${HOME_PATH}/clash-neihe
+#  if [[ "${OpenClash_Core}" == "2" ]]; then
+#    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/meta/clash-${Archclash}.tar.gz -O meta.tar.gz
+#    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/dev/clash-${Archclash}.tar.gz -O clash.tar.gz
+#    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/core_version -O core_version
+#    TUN="$(cat core_version |grep -v "^v\|^V\|^a" |grep -E "[0-9]+.[0-9]+.[0-9]+")"
+#    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/premium/clash-${Archclash}-${TUN}.gz -O clash_tun.gz
+#    
+#    tar -zxvf clash.tar.gz -O > clash
+#    if [[ $? -eq 0 ]];then
+#      mv -f ${HOME_PATH}/clash-neihe/clash ${HOME_PATH}/files/etc/openclash/core/clash
+#      sudo chmod +x ${HOME_PATH}/files/etc/openclash/core/clash
+#      echo "OpenClash增加dev内核成功"
+#    else
+#      echo "OpenClash增加dev内核失败"
+#    fi
+#    tar -zxvf meta.tar.gz -O > clash_meta
+#    if [[ $? -eq 0 ]];then
+#      mv -f ${HOME_PATH}/clash-neihe/clash_meta ${HOME_PATH}/files/etc/openclash/core/clash_meta
+#      sudo chmod +x ${HOME_PATH}/files/etc/openclash/core/clash_meta
+#      echo "OpenClash增加meta内核成功"
+#    else
+#      echo "OpenClash增加meta内核失败"
+#    fi
+#    gzip -d clash_tun.gz
+#    if [[ $? -eq 0 ]];then
+#      mv -f ${HOME_PATH}/clash-neihe/clash_tun ${HOME_PATH}/files/etc/openclash/core/clash_tun
+#      sudo chmod +x ${HOME_PATH}/files/etc/openclash/core/clash_tun
+#      echo "clash"
+#      echo "OpenClash增加tun内核成功"
+#    else
+#      echo "OpenClash增加tun内核失败"
+#    fi
+#  elif [[ "${OpenClash_Core}" == "1" ]]; then
+#    wget -q https://raw.githubusercontent.com/vernesong/OpenClash/core/${OpenClash_branch}/dev/clash-${Archclash}.tar.gz
+#    if [[ $? -ne 0 ]];then
+#      wget -q https://github.com/vernesong/OpenClash/releases/download/Clash/clash-${Archclash}.tar.gz
+#    else
+#      echo "OpenClash内核下载成功"
+#    fi
+#    tar -zxvf clash-${Archclash}.tar.gz
+#    if [[ -f "${HOME_PATH}/clash-neihe/clash" ]]; then
+#      mv -f ${HOME_PATH}/clash-neihe/clash ${HOME_PATH}/files/etc/openclash/core/clash
+#      sudo chmod +x ${HOME_PATH}/files/etc/openclash/core/clash
+#      echo "OpenClash增加内核成功"
+#    else
+#      echo "OpenClash增加内核失败"
+#    fi
+#  else
+#    echo "无需内核"
+#  fi
+#  cd ${HOME_PATH}
+#  rm -rf ${HOME_PATH}/clash-neihe
+#fi
 
 if [[ ! "${weizhicpu}" == "1" ]] && [[ "${AdGuardHome_Core}" == "1" ]]; then
   echo "正在执行：给adguardhome下载核心"
