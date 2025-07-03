@@ -1474,6 +1474,10 @@ else
 fi
 
 
+fi
+}
+
+
 function Diy_upgrade2() {
 cd ${HOME_PATH}
 sed -i 's/^[ ]*//g' "${DEFAULT_PATH}"
