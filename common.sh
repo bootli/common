@@ -1858,8 +1858,6 @@ fi
 function Diy_menu6() {
 Diy_prevent
 Make_defconfig
-Diy_Publicarea2
-Diy_adguardhome
 Diy_upgrade2
 }
 
