@@ -395,6 +395,7 @@ rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-netdata
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
 rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba
 rm -rf ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav
+rm -rf ${HOME_PATH}/feedspackages/net/speedtest-cli 
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon ${HOME_PATH}/package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config ${HOME_PATH}/package/lean/luci-app-argon-config
 git clone https://github.com/bootli/luci-app-v2ray-server ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
@@ -403,10 +404,11 @@ git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
 git clone https://github.com/sirpdboy/luci-app-ddns-go ${HOME_PATH}/package/ddns-go
 git clone https://github.com/messense/aliyundrive-webdav ${HOME_PATH}/package/li
 git clone https://github.com/destan19/OpenAppFilter ${HOME_PATH}/package/oaf
+git clone https://github.com/sirpdboy/luci-app-netspeedtest ${HOME_PATH}/package/netspeedtest
 
 # 更换golang版本
-rm -rf ${HOME_PATH}/feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 24.x ${HOME_PATH}/feeds/packages/lang/golang
+#rm -rf ${HOME_PATH}/feeds/packages/lang/golang
+#git clone https://github.com/sbwml/packages_lang_golang -b 24.x ${HOME_PATH}/feeds/packages/lang/golang
 
 
 if [[ `grep -Eoc "admin:.*" ${FILES_PATH}/etc/shadow` -eq '1' ]]; then
