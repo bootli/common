@@ -153,6 +153,47 @@ sed -i "s/LUCI_EDITION/${LUCI_EDITION}/g" "${DEFAULT_PATH}"
 sed -i "s/OPHUBOPENWRT/${DISTRIB_SOURCECODE}/g" "${DEFAULT_PATH}"
 sed -i 's/root:.*/root::0:0:99999:7:::/g' "${FILES_PATH}"
 grep -q "admin:" ${FILES_PATH} && sed -i 's/admin:.*/admin::0:0:99999:7:::/g' "${FILES_PATH}"
+sed -i 's/luci.git;openwrt-23.05/luci/g' ${HOME_PATH}/feeds.conf.default
+
+#添加
+rm -rf ${HOME_PATH}/feeds
+cd ${HOME_PATH}
+./scripts/feeds update -a
+./scripts/feeds install -a
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-argon-config
+rm -rf ${HOME_PATH}/feeds/luci/themes/luci-theme-argon
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-argon
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-theme-argone
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-argon-config
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-argone-config
+rm -rf ${HOME_PATH}/package/lean/luci-theme-argon
+rm -rf ${HOME_PATH}/package/lean/luci-app-argon-config
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-adguardhome
+rm -rf ${HOME_PATH}/feeds/kenzo/adguardhome
+rm -rf ${HOME_PATH}/feeds/packages/net/adguardhome
+rm -rf ${HOME_PATH}/feeds/kenzo/diy/.packages/luci-app-adguardhome
+rm -rf ${HOME_PATH}/feeds/kenzo/diy/.packages/adguardhome
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-ikoolproxy
+rm -rf ${HOME_PATH}/feeds/kenzo/luci-app-ikoolproxy
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-socat
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-aliyundrive-fuse
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-aliyundrive-webdav
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-netdata
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
+rm -rf ${HOME_PATH}/feeds/luci/applications/luci-app-samba
+rm -rf ${HOME_PATH}/feeds/packages/multimedia/aliyundrive-webdav
+rm -rf ${HOME_PATH}/feedspackages/net/speedtest-cli 
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon ${HOME_PATH}/package/lean/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config ${HOME_PATH}/package/lean/luci-app-argon-config
+git clone https://github.com/bootli/luci-app-v2ray-server ${HOME_PATH}/feeds/luci/applications/luci-app-v2ray-server
+git clone https://github.com/bootli/luci-app-samba4 ${HOME_PATH}/feeds/luci/applications/luci-app-samba4
+git clone https://github.com/bootli/libuild ${HOME_PATH}/package/libuild
+git clone https://github.com/sirpdboy/luci-app-ddns-go ${HOME_PATH}/package/ddns-go
+git clone https://github.com/messense/aliyundrive-webdav ${HOME_PATH}/package/li
+git clone https://github.com/destan19/OpenAppFilter ${HOME_PATH}/package/oaf
+git clone https://github.com/sirpdboy/luci-app-netspeedtest ${HOME_PATH}/package/netspeedtest
+
 
 # 添加自定义插件源
 srcdir="$(mktemp -d)"
@@ -170,26 +211,29 @@ fi
 if [[ -d "${srcdir}/modules/luci-mod-system" ]]; then
   THEME_BRANCH="Theme2"
   rm -rf "${srcdir}"
-  gitsvn https://github.com/281677160/luci-theme-argon/tree/master "${HOME_PATH}/package/luci-theme-argon"
+  gitsvn https://github.com/bootli/luci-theme-argon/tree/master "${HOME_PATH}/package/luci-theme-argon"
 else
   THEME_BRANCH="Theme1"
   rm -rf "${srcdir}"
-  gitsvn https://github.com/281677160/luci-theme-argon/tree/18.06 "${HOME_PATH}/package/luci-theme-argon"
+  gitsvn https://github.com/bootli/luci-theme-argon/tree/18.06 "${HOME_PATH}/package/luci-theme-argon"
 fi
 
 echo "src-git danshui https://github.com/281677160/openwrt-package.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
 echo "src-git dstheme https://github.com/281677160/openwrt-package.git;$THEME_BRANCH" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git kenzo https://github.com/kenzok8/openwrt-packages;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git small https://github.com/kenzok8/small;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
+echo "src-git helloworld https://github.com/fw876/helloworld.git;$SOURCE" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "1" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;master" >> "${HOME_PATH}/feeds.conf.default"
 [[ "${OpenClash_branch}" == "2" ]] && echo "src-git OpenClash https://github.com/vernesong/OpenClash.git;dev" >> "${HOME_PATH}/feeds.conf.default"
 
 # 增加中文语言包
 if [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme2" ]]; then
-  gitsvn https://github.com/281677160/common/tree/main/Share/default-settings "${HOME_PATH}/package/default-settings"
+  gitsvn https://github.com/bootli/common/tree/main/Share/default-settings "${HOME_PATH}/package/default-settings"
   grep -qw "libustream-wolfssl" "${HOME_PATH}/include/target.mk" && sed -i 's?\<libustream-wolfssl\>?libustream-openssl?g' "${HOME_PATH}/include/target.mk"
   ! grep -qw "dnsmasq-full" "${HOME_PATH}/include/target.mk" && sed -i 's?\<dnsmasq\>?dnsmasq-full?g' "${HOME_PATH}/include/target.mk"
   ! grep -qw "default-settings" "${HOME_PATH}/include/target.mk" && sed -i 's?DEFAULT_PACKAGES:=?DEFAULT_PACKAGES:=default-settings?g' "${HOME_PATH}/include/target.mk"
 elif [[ -z "$(find "$HOME_PATH/package" -type d -name "default-settings" -print)" ]] && [[ "${THEME_BRANCH}" == "Theme1" ]]; then
-  gitsvn https://github.com/281677160/common/tree/main/Share/default-setting "${HOME_PATH}/package/default-settings"
+  gitsvn https://github.com/bootli/common/tree/main/Share/default-setting "${HOME_PATH}/package/default-settings"
   grep -qw "libustream-wolfssl" "${HOME_PATH}/include/target.mk" && sed -i 's?\<libustream-wolfssl\>?libustream-openssl?g' "${HOME_PATH}/include/target.mk"
   ! grep -qw "dnsmasq-full" "${HOME_PATH}/include/target.mk" && sed -i 's?\<dnsmasq\>?dnsmasq-full?g' "${HOME_PATH}/include/target.mk"
   ! grep -qw "default-settings" "${HOME_PATH}/include/target.mk" && sed -i 's?DEFAULT_PACKAGES:=?DEFAULT_PACKAGES:=default-settings?g' "${HOME_PATH}/include/target.mk"
@@ -264,7 +308,7 @@ if [[ ! -d "${HOME_PATH}/feeds/packages/lang/rust" ]]; then
 fi
 
 if [[ ! -d "${HOME_PATH}/feeds/packages/devel/packr" ]]; then
-  gitsvn https://github.com/281677160/common/tree/main/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
+  gitsvn https://github.com/bootli/common/tree/main/Share/packr ${HOME_PATH}/feeds/packages/devel/packr
 fi
 
 # files大法，设置固件无烦恼
@@ -367,7 +411,7 @@ if [[ "${REPO_BRANCH}" == "openwrt-19.07" ]]; then
   rm -fr ${HOME_PATH}/feeds/danshui/luci-app-kodexplorer
 fi
 if [[ "${REPO_BRANCH}" =~ (main|master|openwrt-24.10) ]]; then
-  gitsvn https://github.com/281677160/common/blob/main/Share/luci-app-nginx-pingos/Makefile ${HOME_PATH}/feeds/danshui/luci-app-nginx-pingos/Makefile
+  gitsvn https://github.com/bootli/common/blob/main/Share/luci-app-nginx-pingos/Makefile ${HOME_PATH}/feeds/danshui/luci-app-nginx-pingos/Makefile
 fi
 if [[ "${REPO_BRANCH}" == *"23.05"* ]]; then
   gitsvn https://github.com/coolsnowwolf/packages/tree/152022403f0ab2a85063ae1cd9687bd5240fe9b7/net/dnsproxy ${HOME_PATH}/feeds/packages/net/dnsproxy
@@ -903,7 +947,7 @@ esac
 if [[ -n "${Arch}" ]] && [[ "${AdGuardHome_Core}" == "1" ]]; then
   rm -rf ${HOME_PATH}/AdGuardHome && rm -rf ${HOME_PATH}/files/usr/bin
   if [[ ! -f "$LINSHI_COMMON/language/AdGuardHome.api" ]]; then
-    if ! wget -q https://github.com/281677160/common/releases/download/API/AdGuardHome.api -O "$LINSHI_COMMON/language/AdGuardHome.api"; then
+    if ! wget -q https://github.com/bootli/common/releases/download/API/AdGuardHome.api -O "$LINSHI_COMMON/language/AdGuardHome.api"; then
       TIME r "AdGuardHome.api下载失败"
     fi
   fi
