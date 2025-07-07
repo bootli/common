@@ -153,7 +153,6 @@ sed -i "s/LUCI_EDITION/${LUCI_EDITION}/g" "${DEFAULT_PATH}"
 sed -i "s/OPHUBOPENWRT/${DISTRIB_SOURCECODE}/g" "${DEFAULT_PATH}"
 sed -i 's/root:.*/root::0:0:99999:7:::/g' "${FILES_PATH}"
 grep -q "admin:" ${FILES_PATH} && sed -i 's/admin:.*/admin::0:0:99999:7:::/g' "${FILES_PATH}"
-sed -i 's/luci.git;openwrt-23.05/luci/g' ${HOME_PATH}/feeds.conf.default
 
 #添加
 rm -rf ${HOME_PATH}/feeds
