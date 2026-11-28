@@ -67,7 +67,7 @@
       "state": "uploaded",
       "size": 11903073,
       "digest": "sha256:da7ce3790c268eb4f932a951d09c297dcbfcc8f256eccb86eaff8267a816b6c8",
-      "download_count": 445,
+      "download_count": 603,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_darwin_amd64.zip"
@@ -103,7 +103,7 @@
       "state": "uploaded",
       "size": 11047319,
       "digest": "sha256:0a180a9a0a8e7a57b2a73e252ffcb4fda4a7c668576d0228aae96114689129ed",
-      "download_count": 572,
+      "download_count": 830,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_darwin_arm64.zip"
@@ -139,7 +139,7 @@
       "state": "uploaded",
       "size": 11206662,
       "digest": "sha256:5bb8976767867cea876e07768531712f9e679bc2f491332a7027bdd4e640ba62",
-      "download_count": 60,
+      "download_count": 79,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_freebsd_386.tar.gz"
@@ -175,7 +175,7 @@
       "state": "uploaded",
       "size": 11636396,
       "digest": "sha256:0f1772000c1dc76e7b11230989761f5c78ee228ef2e21127aab00f021debdbe6",
-      "download_count": 193,
+      "download_count": 235,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_freebsd_amd64.tar.gz"
@@ -211,7 +211,7 @@
       "state": "uploaded",
       "size": 10541436,
       "digest": "sha256:b4c0b28a88296fb3484727aa04b316f6ce3034de1b45952732e70c023df1a34c",
-      "download_count": 75,
+      "download_count": 94,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_freebsd_arm64.tar.gz"
@@ -247,7 +247,7 @@
       "state": "uploaded",
       "size": 11361356,
       "digest": "sha256:4a92701fbb451e9faf6dbf95c942851f2499b25b62ff9806761b0bb623a38fd7",
-      "download_count": 61,
+      "download_count": 78,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_freebsd_armv5.tar.gz"
@@ -283,7 +283,7 @@
       "state": "uploaded",
       "size": 11117757,
       "digest": "sha256:356031d606fa5472ddcb7bb8ba198b418996aafd2be6bff12f60feb63c725463",
-      "download_count": 56,
+      "download_count": 71,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_freebsd_armv6.tar.gz"
@@ -319,7 +319,7 @@
       "state": "uploaded",
       "size": 11084201,
       "digest": "sha256:7197d28564a2b1d134381b829e53d02e4186c1c4d61205549369c2d4cc65ce0c",
-      "download_count": 66,
+      "download_count": 86,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_freebsd_armv7.tar.gz"
@@ -355,7 +355,7 @@
       "state": "uploaded",
       "size": 1723134,
       "digest": "sha256:70537426c7438ccce1f0997843676042bd01a7fa09cd5cd1a464bcb9e65152c5",
-      "download_count": 1134,
+      "download_count": 2122,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:39Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_frontend.tar.gz"
@@ -391,7 +391,7 @@
       "state": "uploaded",
       "size": 11431081,
       "digest": "sha256:b7e8e43b90abe4f147817335cb5393347b4e11dc09decb1cb65e0230624473e8",
-      "download_count": 115,
+      "download_count": 158,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:44Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_386.tar.gz"
@@ -427,7 +427,7 @@
       "state": "uploaded",
       "size": 11866308,
       "digest": "sha256:19e023d98eb42eb1cdbfd6e4b6ebc937dade59e969506c62eafb3a3d6d2c1e4f",
-      "download_count": 8395,
+      "download_count": 11947,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_amd64.tar.gz"
@@ -463,7 +463,7 @@
       "state": "uploaded",
       "size": 10751205,
       "digest": "sha256:f5c331d29580726179d3119c0464ddacd6fdcd487a0a9e108532f58fdf772604",
-      "download_count": 3451,
+      "download_count": 4810,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_arm64.tar.gz"
@@ -499,7 +499,7 @@
       "state": "uploaded",
       "size": 11576309,
       "digest": "sha256:95bba793e8f2e37a0d0c30c2c50fd5d9d3e29027f4a84446f335815a478ccbc1",
-      "download_count": 85,
+      "download_count": 109,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_armv5.tar.gz"
@@ -535,7 +535,7 @@
       "state": "uploaded",
       "size": 11328422,
       "digest": "sha256:fc76ef5aee1ab866d64b70fd631779da955aaad9518101bbcd0ce39bff767fe6",
-      "download_count": 95,
+      "download_count": 116,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_armv6.tar.gz"
@@ -571,7 +571,7 @@
       "state": "uploaded",
       "size": 11290258,
       "digest": "sha256:7daac1e31ad5b244dd2bb87dca686f55a291156b2ea0477041acdf2cf3b23165",
-      "download_count": 3748,
+      "download_count": 5462,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_armv7.tar.gz"
@@ -607,7 +607,7 @@
       "state": "uploaded",
       "size": 10518350,
       "digest": "sha256:cb503d1ad213549ed481e8c33c376bf8f9610d8a7b63c707d83a96f6872c0124",
-      "download_count": 47,
+      "download_count": 58,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_mips64le_softfloat.tar.gz"
@@ -643,7 +643,7 @@
       "state": "uploaded",
       "size": 10596957,
       "digest": "sha256:406f2f87c47ab65a7961da956dca04ea5b0fe9bee8c15ba3b34a1780569228d9",
-      "download_count": 50,
+      "download_count": 64,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_mips64_softfloat.tar.gz"
@@ -679,7 +679,7 @@
       "state": "uploaded",
       "size": 11003179,
       "digest": "sha256:6d23b088b3a8aabf841641b3bcfdb07c4c51b04262f0792dcddeda36c31b457c",
-      "download_count": 13633,
+      "download_count": 20747,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_mipsle_softfloat.tar.gz"
@@ -715,7 +715,7 @@
       "state": "uploaded",
       "size": 11075868,
       "digest": "sha256:9b791f5a39368333c54547c20864fffedaeded806e42e8584730e82330968c22",
-      "download_count": 75,
+      "download_count": 167,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_mips_softfloat.tar.gz"
@@ -751,7 +751,7 @@
       "state": "uploaded",
       "size": 10897803,
       "digest": "sha256:8ca8074f81f57a09d76ab7f785c23d6852800a502e4631cbda2923d88d02c1e5",
-      "download_count": 47,
+      "download_count": 59,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_ppc64le.tar.gz"
@@ -787,7 +787,7 @@
       "state": "uploaded",
       "size": 11181954,
       "digest": "sha256:e5f1bc61ed2354d1784cf2e4f871ce4b1fc7964c344c8ec2773631c9b49eecf6",
-      "download_count": 47,
+      "download_count": 62,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_linux_riscv64.tar.gz"
@@ -823,7 +823,7 @@
       "state": "uploaded",
       "size": 11619455,
       "digest": "sha256:ba340561c32fdd126bc5f7c258d438ae09efb82a622d3954314e24b6566946d7",
-      "download_count": 52,
+      "download_count": 63,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:44Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_openbsd_amd64.tar.gz"
@@ -859,7 +859,7 @@
       "state": "uploaded",
       "size": 10528265,
       "digest": "sha256:4981a8b43e1bf2ec8e12df9e254a0b3f8bd37a5120ef81cd5382a59ee3b798d2",
-      "download_count": 47,
+      "download_count": 59,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_openbsd_arm64.tar.gz"
@@ -895,7 +895,7 @@
       "state": "uploaded",
       "size": 10773770,
       "digest": "sha256:a8cdec83f2d0c5bf9e1c1ea0875c862f39834b05ea2b7900c04a378deb5ac57f",
-      "download_count": 290,
+      "download_count": 349,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_windows_386.zip"
@@ -931,7 +931,7 @@
       "state": "uploaded",
       "size": 10983097,
       "digest": "sha256:538f3863db11a054087e8b31eb7417a2c4b09a4cb689e29d59a49105dad45521",
-      "download_count": 2057,
+      "download_count": 2912,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_windows_amd64.zip"
@@ -967,7 +967,7 @@
       "state": "uploaded",
       "size": 9865700,
       "digest": "sha256:9fe6a71250599666c48a6a6a79f9d05069cb43490be0c39923fae14b81c69a48",
-      "download_count": 140,
+      "download_count": 182,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:43Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/AdGuardHome_windows_arm64.zip"
@@ -1003,7 +1003,7 @@
       "state": "uploaded",
       "size": 2622,
       "digest": "sha256:82f7966d2931eaad775277ca7097cbabdf8472d8a8d7887254ad4ead664e40ad",
-      "download_count": 3411,
+      "download_count": 4873,
       "created_at": "2026-11-19T15:16:38Z",
       "updated_at": "2026-11-19T15:16:39Z",
       "browser_download_url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v1.0.0/checksums.txt"
@@ -1014,14 +1014,14 @@
   "body": "Since the beta of AdGuard Home v1.0 was released in late September, we collected feedback and acted accordingly. The product has gone through major overhaul both under the hood and appearance-wise in the beta versions. The stable release adds the fine-tuning that users asked for. Today, we are releasing AdGuard Home v1.0.\r\n\r\n## A redesign you don’t have to relearn\r\n\r\nThe web interface for AdGuard Home has been completely updated to look cleaner, more modern, and fully aligned with the rest of the AdGuard ecosystem. Avoiding overall layout changes was intentional — we didn’t wish for you to stress out while relearning where every button is. We refreshed the visual style while preserving the familiar logic. We wrote extensively about it in our [article on the beta version](https://adguard-dns.io/en/blog/adguard-home-v1-0-beta.html), it is worth a look if you need more information. \r\n\r\n![New dashboard](https://cdn.adtidy.org/content/release_notes/dns/home-v1-0-beta/dashboard.png)\r\n\r\nBut this overhaul goes deeper than looks. The new frontend shares the backend’s strict optimization philosophy. Rebuilt with fine-grained reactivity, it is now significantly lighter and faster. This update also resolves memory consumption issues linked to the old interface, making AdGuard Home run smoothly on low-power devices, and introduces a fully responsive mobile UI.\r\n\r\n![Before and after](https://cdn.adtidy.org/content/release_notes/dns/home-v1-0-beta/adguard_home_before_after.png)\r\n\r\n## New release model\r\n\r\nWe are adopting a more flexible development and versioning model used by other AdGuard products. Minor releases may now include backward-incompatible changes, which lets us ship features faster.\r\n\r\nWhat does this mean for you? Moving forward, the new release cycle will focus on delivering features and tools, not just patches and library updates.\r\n\r\nNo migration needed: v1.0 keeps the same configuration schema as v0.107.x, , so your existing configuration works as is.\r\n\r\n## What changed since the beta\r\n\r\nWhile the first beta of v1.0 introduced a globally changed interface, the second beta was all about stability. 18 changes were included in it, we will highlight the most important ones below; you can consult the full list in the [changelog](https://github.com/AdguardTeam/AdGuardHome/releases/tag/v1.0.0-b.2).\r\n\r\n* **DHCP:** IPv4 settings can now be saved alongside an IPv6-compatible interface, DHCP starts with a DHCPv6-only configuration, and subnet validation works as expected.\r\n* **Clients and ClientIDs:** IPv6 CIDRs with an embedded IPv4 address are accepted, malformed MAC addresses and leading-zero octets are rejected, and per-client schedules survive saving.\r\n* **Interface:** long values no longer overflow dialogs, encrypted DNS addresses appear in the Setup Guide right away, and emoji passwords work in the wizard.\r\n* **DNS:** DDR returns a valid SVCB record with empty DoH routes, schedules no longer shift on clock changes, and command-line updates work with private reverse DNS enabled.\r\n* **Everything else:** `--check-config` behaves correctly on first launch, and `log.enabled: false` now disables the legacy logger.\r\n\r\nOne change deserves a special mention. New installations now use *Cloudflare DNS* as the default upstream and bootstrap servers instead of *Quad9*. \r\n\r\nThe new defaults are `https://cloudflare-dns.com/dns-query` for the upstream and `1.1.1.1`, `1.0.0.1`, `2606:4700:4700::1111`, `2606:4700:4700::1001` for the bootstrap. Previously we used `https://dns10.quad9.net/dns-query` with `9.9.9.10`, `149.112.112.10`, `2620:fe::10`, `2620:fe::fe:10`. Existing configurations are not migrated automatically. \r\n\r\n> Users whose traffic goes through France, should update the upstream and bootstrap addresses before November 24, when *Quad9* stops serving the country.\r\n\r\nAlso, client settings are now more specified: *Use global settings* covers *Protection* only, blocked services have their own switch, and upstream and cache settings stay editable. You can apply global settings when you want many clients to share the same configuration, or set things up per-client when you want an individual approach.\r\n\r\n## Our plans for future releases\r\n\r\nAdGuard Home v1.0 won’t be the last version to bring major changes — we plan to keep improving it until it reaches its full potential. A self-diagnostics page, mass-importing of filtering lists, a built-in search tool for the interface and the ability to automatically issue and renew TLS certificates are currently in the works. We intend to move the product forward at a faster pace from now on.\r\n\r\n## How to update or switch to v1.0\r\n\r\n**If you are using the beta or edge channel:** You don’t need to do anything. The update will go through automatically via the built-in updater.\r\n\r\n**If you are on the stable version:** Follow the UI prompt to update.\r\n\r\n**If you prefer using CLI:** Run the command `./AdGuardHome --update -v`\r\n\r\n**If you are updating through Docker:** Set the image tag to `:latest`, then recreate and restart the container.\r\n\r\n## Your feedback is important for our development\r\n\r\nFound a bug or have a suggestion? Let us know on [GitHub](https://github.com/AdguardTeam/AdGuardHome/issues). \r\n\r\n> [!TIP]\r\n> Use the search bar first to check if someone else has already reported the issue. If it’s a new one, open a ticket, and we’ll dive right into it.\r\n\r\n## Full changelog\r\n\r\nSee also the [v1.0.0 GitHub milestone][ms-v1.0.0].\r\n\r\n### Security\r\n\r\n- Go version has been updated to mitigate the possibility of exploiting the Go vulnerabilities fixed in [1.27.4][go-1.27.4].\r\n\r\n### Changed\r\n\r\n- The default upstream and bootstrap addresses have been changed from Quad9 to Cloudflare DNS, since Quad9 is adding geography-based restrictions (#8686).\r\n\r\n    **NOTE:**  If you live in the affected area (France) and still have not changed your upstream, bootstrap, and possibly fallback addresses, it is recommended that you do so.\r\n\r\n    See our [list of known DNS providers][dns-kb-list].\r\n\r\n- Client settings in the new web interface: *Use global settings* now applies to Protection only, blocked services have a separate *Use global blocked services* switch, and upstream DNS servers and the DNS cache are always editable.\r\n\r\n### Fixed\r\n\r\n- The new web interface install wizard counting the minimum password length in UTF-8 bytes and letting the server reject a password it had accepted; the minimum is now counted in characters, as the server does.\r\n\r\n- Changing the theme in the new web interface failing with `unknown language: \"\"` on installations that never selected a language.\r\n\r\n- Init script actions not being passed to System V and OpenWrt services.\r\n\r\n- DNS rewrites with trailing dots not matching (#8674).\r\n\r\n- Shutdown deadlock when looking up clients for query accounting (#8658).\r\n\r\n- CLI update failing when an upstream is specified by a hostname defined only in `/etc/hosts`.\r\n\r\n- The *Check the filtering* result in the new web interface showing only the first matched rule (#8677).\r\n\r\n- Panic on binding to a busy port (#8656).\r\n\r\n- Expired dynamic leases are served by DNS (#8671).\r\n\r\n- The *Check for updates* button disappearing and raw or untranslated error messages being shown when the update check or the DNS server status check failed in the new web interface (#8681).\r\n\r\n- The theme selected in the new web interface not being saved to the server (#8699).\r\n\r\n- Invalid SVCB record from DDR when DoH routes are empty.\r\n\r\n- Schedule shift on clock change cases (#8670).\r\n\r\n- Incorrect behaviour on the first launch with the `--check-config` flag.\r\n\r\n- Reading partially received TCP prefix.\r\n\r\n- A panic when updating AdGuard Home binary via the command line with `use_private_ptr_resolvers` set to true (#8613).\r\n\r\n- `log.enabled` set to `false` leaving the legacy logger enabled (#8565).\r\n\r\n- DHCP server persisting uncommitted leases with zero expiry after `DHCPDISCOVER` messages (#8572).\r\n\r\n- DHCPv4 settings not being saved when an IPv6-capable interface is selected and DHCPv6 is not configured (#8608).\r\n\r\n- DHCP not being enabled when only the DHCPv6 section is configured.\r\n\r\n- DHCP IPv4 range subnet validation not working (#8609).\r\n\r\n- Client ID validation rejecting valid IPv6 CIDRs with an embedded dotted-decimal IPv4 address (#8610).\r\n\r\n- Client ID validation accepting IPv4 addresses with leading-zero octets (`192.168.01.1`), malformed MAC addresses, and ClientIDs with leading or trailing hyphens.\r\n\r\n- IP addresses being sorted lexicographically instead of numerically in the web interface (#8636).\r\n\r\n- Invalid secondary bootstrap resolver IPv4 address (#8637).\r\n\r\n- The *Server addresses* dialog overflowing horizontally when a long value is entered. Long unbreakable values in the settings rows overflowing the page.\r\n\r\n- Encrypted DNS server addresses not appearing in the Setup Guide until the page was reloaded after enabling encryption.\r\n\r\n- Passwords containing emoji being rejected by the first-run setup wizard in the new web interface.\r\n\r\n- Cache size and TTL override rows being locked while the DNS cache was disabled in the new web interface (#8644).\r\n\r\n- Tables staying on an empty page after the last row of that page was deleted in the new web interface (#8644).\r\n\r\n- The *Log out* button opening the login page in a new tab in the new web interface (#8661).\r\n\r\n- Per-client blocked services schedules being reset when a client was saved in the new web interface (#8638).\r\n\r\n- Client sub-pages of the new web interface showing the default values instead of the client's settings when opened directly or reloaded.\r\n\r\n### Removed\r\n\r\n- The following deprecated HTTP APIs:\r\n    - `GET /control/blocked_services/list`\r\n    - `GET /control/blocked_services/services`\r\n    - `GET /control/clients/find`\r\n    - `GET /control/i18n/current_language`\r\n    - `GET /control/querylog_info`\r\n    - `GET /control/stats_info`\r\n    - `POST /control/blocked_services/set`\r\n    - `POST /control/i18n/change_language`\r\n    - `POST /control/querylog_config`\r\n    - `POST /control/safesearch/disable`\r\n    - `POST /control/safesearch/enable`\r\n    - `POST /control/stats_config`\r\n\r\n- The following deprecated properties and query parameters in HTTP APIs:\r\n    - Properties `\"filterId\"` and `\"rule\"` in the response of the `GET /control/querylog` HTTP API.\r\n    - Properties `\"filter_id\"` and `\"rule\"` in the response of the `GET /control/filtering/check_host` HTTP API.\r\n    - Property `\"safesearch_enabled\"` in the client APIs.\r\n    - Query parameter `response_status` in the `GET /control/querylog` HTTP API.\r\n\r\n- The deprecated usage of an empty value for the `\"upstream_mode\"` property in the `GET /control/dns_info` and `POST /control/dns_config` HTTP APIs.\r\n\r\n- The following deprecated command-line flags:\r\n    - `--host`/`-h` for the bind host; now it is only used to show the help message along with `--help`.\r\n    - `--no-mem-optimization`.\r\n    - `--no-etc-hosts`.\r\n    - `--port`/`-p`.\r\n\r\n[dns-kb-list]: https://adguard-dns.io/kb/general/dns-providers/\r\n[go-1.27.4]:   https://groups.google.com/g/golang-announce/c/iY8TY0wWgbM/\r\n[ms-v1.0.0]:   https://github.com/AdguardTeam/AdGuardHome/milestone/116?closed=1\r\n",
   "reactions": {
     "url": "https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/451521795/reactions",
-    "total_count": 316,
-    "+1": 120,
+    "total_count": 332,
+    "+1": 130,
     "-1": 0,
-    "laugh": 15,
-    "hooray": 69,
+    "laugh": 16,
+    "hooray": 70,
     "confused": 0,
-    "heart": 57,
-    "rocket": 37,
-    "eyes": 18
+    "heart": 59,
+    "rocket": 38,
+    "eyes": 19
   }
 }
